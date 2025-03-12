@@ -53,23 +53,23 @@ namespace EF_Project.Forms
                     }
                     else if (user.role.ToString() == "HR")
                     {
-
+                        employee_id = (int)user.employeeId;
                         this.Hide();
                         MessageBox.Show("Welcome to HR Dashboard", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         new HRDashboard(employee_id).Show();
                     }
                     else if (user.role.ToString() == "Admin")
                     {
-                        //this.Close();
+                        this.Hide();
+                        employee_id = (int)user.employeeId;
+                        new AdminDashboard(employee_id).Show();
                     }
                 }
                 catch
                 {
                     MessageBox.Show("Invalid UserName or Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
             }
-
         }
 
         private void check_viewPass_UF_CheckedChanged_1(object sender, EventArgs e)

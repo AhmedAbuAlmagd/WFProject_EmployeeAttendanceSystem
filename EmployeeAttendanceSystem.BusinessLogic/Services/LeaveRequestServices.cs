@@ -45,7 +45,24 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
 
         // Show Requests Form
 
-        public List<object> GetAllPendingRequests()
+        public List<object> GetAllPendingRequestsE()
+        {
+            return context.LeaveRequests
+                .Where(r => r.requestStatus == LeaverequestStatus.Pending && r.Employee.User.role.ToString() != "HR")
+                .Select(r => new
+                {
+                    r.id,
+                    EmployeeId = r.EmployeeId,
+                    EmployeeName = r.Employee.name,
+                    r.requestDate,
+                    r.LeaveStartTime,
+                    r.LeaveEndTime,
+                    LeaveType = r.LeaveType.ToString(),
+                    requestStatus = r.requestStatus.ToString()
+                })
+                .ToList<object>();
+        }
+        public List<object> GetAllPendingRequestsA()
         {
             return context.LeaveRequests
                 .Where(r => r.requestStatus == LeaverequestStatus.Pending)
@@ -130,8 +147,7 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
             context.SaveChanges();
         }
 
-
-
+     
     }
         
 }

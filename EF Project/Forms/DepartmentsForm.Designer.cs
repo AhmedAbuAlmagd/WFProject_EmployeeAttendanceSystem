@@ -34,13 +34,14 @@
             btn_deleteDept_UF = new Button();
             btn_updateDept_UF = new Button();
             btn_addDept_UF = new Button();
+            btn_back_DF = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_department).BeginInit();
             SuspendLayout();
             // 
             // dgv_department
             // 
             dgv_department.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_department.Location = new Point(5, 203);
+            dgv_department.Location = new Point(5, 121);
             dgv_department.Name = "dgv_department";
             dgv_department.RowHeadersWidth = 51;
             dgv_department.Size = new Size(560, 311);
@@ -49,7 +50,7 @@
             // 
             // txt_deptName_DF
             // 
-            txt_deptName_DF.Location = new Point(293, 104);
+            txt_deptName_DF.Location = new Point(292, 40);
             txt_deptName_DF.Name = "txt_deptName_DF";
             txt_deptName_DF.Size = new Size(163, 27);
             txt_deptName_DF.TabIndex = 1;
@@ -57,7 +58,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(117, 107);
+            label1.Location = new Point(116, 43);
             label1.Name = "label1";
             label1.Size = new Size(133, 20);
             label1.TabIndex = 2;
@@ -65,7 +66,7 @@
             // 
             // btn_deleteDept_UF
             // 
-            btn_deleteDept_UF.Location = new Point(634, 423);
+            btn_deleteDept_UF.Location = new Point(634, 341);
             btn_deleteDept_UF.Name = "btn_deleteDept_UF";
             btn_deleteDept_UF.Size = new Size(142, 54);
             btn_deleteDept_UF.TabIndex = 11;
@@ -75,7 +76,7 @@
             // 
             // btn_updateDept_UF
             // 
-            btn_updateDept_UF.Location = new Point(634, 323);
+            btn_updateDept_UF.Location = new Point(634, 241);
             btn_updateDept_UF.Name = "btn_updateDept_UF";
             btn_updateDept_UF.Size = new Size(142, 54);
             btn_updateDept_UF.TabIndex = 10;
@@ -85,7 +86,7 @@
             // 
             // btn_addDept_UF
             // 
-            btn_addDept_UF.Location = new Point(634, 226);
+            btn_addDept_UF.Location = new Point(634, 144);
             btn_addDept_UF.Name = "btn_addDept_UF";
             btn_addDept_UF.Size = new Size(142, 54);
             btn_addDept_UF.TabIndex = 9;
@@ -93,11 +94,22 @@
             btn_addDept_UF.UseVisualStyleBackColor = true;
             btn_addDept_UF.Click += btn_addDept_UF_Click;
             // 
+            // btn_back_DF
+            // 
+            btn_back_DF.Location = new Point(677, 455);
+            btn_back_DF.Name = "btn_back_DF";
+            btn_back_DF.Size = new Size(129, 48);
+            btn_back_DF.TabIndex = 11;
+            btn_back_DF.Text = "Back";
+            btn_back_DF.UseVisualStyleBackColor = true;
+            btn_back_DF.Click += btn_back_DF_Click;
+            // 
             // DepartmentsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(835, 515);
+            Controls.Add(btn_back_DF);
             Controls.Add(btn_deleteDept_UF);
             Controls.Add(btn_updateDept_UF);
             Controls.Add(btn_addDept_UF);
@@ -120,5 +132,6 @@
         private Button btn_deleteDept_UF;
         private Button btn_updateDept_UF;
         private Button btn_addDept_UF;
+        private Button btn_back_DF;
     }
 }
