@@ -34,7 +34,6 @@
             txt_password_LF = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            button1 = new Button();
             SuspendLayout();
             // 
             // check_viewPass_UF
@@ -97,21 +96,11 @@
             label1.TabIndex = 38;
             label1.Text = "User Name";
             // 
-            // button1
-            // 
-            button1.Location = new Point(78, 362);
-            button1.Name = "button1";
-            button1.Size = new Size(145, 47);
-            button1.TabIndex = 44;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
             Controls.Add(check_viewPass_UF);
             Controls.Add(txt_userName_LF);
             Controls.Add(btn_login_LF);

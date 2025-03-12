@@ -20,18 +20,24 @@ namespace EF_Project.Forms
         DepartmentServices departmentServices;
         Form prevForm;
         AttendanceContext context;
-        public EmployeeManagment(Form prevForm)
+        int employee_id;
+        public EmployeeManagment(int employee_id ,Form prevForm)
         {
             InitializeComponent();
             context = new AttendanceContext();
             employeeServices = new EmployeeServices(context);
             departmentServices = new DepartmentServices(context);
             this.prevForm = prevForm;
+            this.employee_id = employee_id;
         }
 
         private void btn_getdata_EMF_Click(object sender, EventArgs e)
         {
-            dgv_emp_EMF.DataSource = employeeServices.GetAll();
+            if (employeeServices.GetById(employee_id).User.role.ToString() == "HR")
+                dgv_emp_EMF.DataSource = employeeServices.GetAllEmp();
+            else
+                dgv_emp_EMF.DataSource = employeeServices.GetAllEmpAndHr();
+
             LoadEnumComboBox();
         }
 
@@ -51,14 +57,13 @@ namespace EF_Project.Forms
                 };
                 employeeServices.Add(emp);
                 MessageBox.Show("Added Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgv_emp_EMF.DataSource = employeeServices.GetAll();
+                dgv_emp_EMF.DataSource = employeeServices.GetAllEmp();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //employeeServices.GetAll();
             txt_name_EMF.Text = txt_email_EMF.Text = txt_position_EMF.Text = txt_phone_EMF.Text = "";
 
         }
@@ -91,11 +96,8 @@ namespace EF_Project.Forms
                 emp.workSchedule = (workSchedule)cb_schedule_EMF.SelectedItem;
                 employeeServices.Update(id, emp);
                 MessageBox.Show("Updated Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgv_emp_EMF.DataSource = employeeServices.GetAll();
+                dgv_emp_EMF.DataSource = employeeServices.GetAllEmp();
             }
-
-
-
 
             catch (Exception ex)
             {
@@ -115,7 +117,7 @@ namespace EF_Project.Forms
                     employeeServices.Delete(id);
                     MessageBox.Show("Deleted success", "Success", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                dgv_emp_EMF.DataSource = employeeServices.GetAll();
+                dgv_emp_EMF.DataSource = employeeServices.GetAllEmp();
             }
 
             catch (Exception ex)
@@ -142,7 +144,6 @@ namespace EF_Project.Forms
             
             this.Close();
             prevForm.Show();
-
         }
 
     }

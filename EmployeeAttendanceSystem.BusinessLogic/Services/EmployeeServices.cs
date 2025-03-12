@@ -25,12 +25,17 @@
             {
                 return context.Employees.FirstOrDefault(x => x.email == email);
             }
-            public List<Employee> GetAll()
+            public List<Employee> GetAllEmp()
             {
                 return context.Employees.Where(x => x.User.role.ToString() == "Employee").ToList();
             }
 
-            public void Add(Employee employee)
+            public List<Employee> GetAllEmpAndHr()
+            {
+            return context.Employees.ToList();
+            }
+
+        public void Add(Employee employee)
             {
                 if (string.IsNullOrEmpty(employee.name))
                     throw new ArgumentException("Employee name is required.");
@@ -63,7 +68,7 @@
                 context.SaveChanges();
             }
 
-       
-
-        }
+        
+        
+    }
     }
