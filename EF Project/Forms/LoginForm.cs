@@ -54,13 +54,13 @@ namespace EF_Project.Forms
                     else if (user.role.ToString() == "HR")
                     {
 
-                        this.Hide();
+                        
                         MessageBox.Show("Welcome to HR Dashboard", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         new HRDashboard(employee_id).Show();
                     }
                     else if (user.role.ToString() == "Admin")
                     {
-                        this.Hide();
+                        
                         employee_id = (int)user.employeeId;
                         new AdminDashboard(employee_id).Show();
                     }
