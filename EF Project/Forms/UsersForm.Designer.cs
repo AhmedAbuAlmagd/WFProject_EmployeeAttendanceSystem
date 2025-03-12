@@ -41,6 +41,7 @@
             label3 = new Label();
             combo_employee_UF = new ComboBox();
             label4 = new Label();
+            btn_back_UF = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_users_UF).BeginInit();
             SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             dgv_users_UF.Location = new Point(12, 182);
             dgv_users_UF.Name = "dgv_users_UF";
             dgv_users_UF.RowHeadersWidth = 51;
-            dgv_users_UF.Size = new Size(554, 321);
+            dgv_users_UF.Size = new Size(554, 376);
             dgv_users_UF.TabIndex = 2;
             dgv_users_UF.RowHeaderMouseDoubleClick += dgv_users_UF_RowHeaderMouseDoubleClick;
             // 
@@ -97,7 +98,7 @@
             // 
             // btn_addUser_UF
             // 
-            btn_addUser_UF.Location = new Point(626, 215);
+            btn_addUser_UF.Location = new Point(644, 215);
             btn_addUser_UF.Name = "btn_addUser_UF";
             btn_addUser_UF.Size = new Size(142, 54);
             btn_addUser_UF.TabIndex = 6;
@@ -107,7 +108,7 @@
             // 
             // btn_updateUser_UF
             // 
-            btn_updateUser_UF.Location = new Point(626, 312);
+            btn_updateUser_UF.Location = new Point(644, 312);
             btn_updateUser_UF.Name = "btn_updateUser_UF";
             btn_updateUser_UF.Size = new Size(142, 54);
             btn_updateUser_UF.TabIndex = 7;
@@ -117,7 +118,7 @@
             // 
             // btn_deleteUser_UF
             // 
-            btn_deleteUser_UF.Location = new Point(626, 412);
+            btn_deleteUser_UF.Location = new Point(644, 412);
             btn_deleteUser_UF.Name = "btn_deleteUser_UF";
             btn_deleteUser_UF.Size = new Size(142, 54);
             btn_deleteUser_UF.TabIndex = 8;
@@ -163,11 +164,22 @@
             label4.TabIndex = 39;
             label4.Text = "Employee";
             // 
+            // btn_back_UF
+            // 
+            btn_back_UF.Location = new Point(731, 525);
+            btn_back_UF.Name = "btn_back_UF";
+            btn_back_UF.Size = new Size(122, 45);
+            btn_back_UF.TabIndex = 41;
+            btn_back_UF.Text = "Back";
+            btn_back_UF.UseVisualStyleBackColor = true;
+            btn_back_UF.Click += btn_back_UF_Click;
+            // 
             // UsersForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(835, 515);
+            ClientSize = new Size(865, 582);
+            Controls.Add(btn_back_UF);
             Controls.Add(combo_employee_UF);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -204,5 +216,6 @@
         private Label label3;
         private ComboBox combo_employee_UF;
         private Label label4;
+        private Button btn_back_UF;
     }
 }

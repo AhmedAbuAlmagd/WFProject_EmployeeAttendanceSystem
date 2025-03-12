@@ -9,12 +9,14 @@ namespace EF_Project
         UserServices userServices;
         EmployeeServices employeeServices;
         AttendanceContext attendanceContext;
-        public UsersForm()
+        Form prevForm;
+        public UsersForm(Form prevForm)
         {
             InitializeComponent();
             attendanceContext = new AttendanceContext();
             userServices = new UserServices(attendanceContext);
             employeeServices = new EmployeeServices(attendanceContext);
+            this.prevForm = prevForm;
         }
 
         private void UsersForm_Load(object sender, EventArgs e)
@@ -22,7 +24,7 @@ namespace EF_Project
             List<string> roles = Enum.GetNames(typeof(role)).ToList();
 
             combo_role_UF.DataSource = roles;
-            combo_employee_UF.DataSource = employeeServices.GetAll();
+            combo_employee_UF.DataSource = employeeServices.GetAllEmp();
             combo_employee_UF.DisplayMember = "name";
             combo_employee_UF.ValueMember = "id";
             dgv_users_UF.DataSource = userServices.GetAll();
@@ -94,7 +96,7 @@ namespace EF_Project
 
         private void btn_deleteUser_UF_Click(object sender, EventArgs e)
         {
-           try
+            try
             {
                 var result = MessageBox.Show("Are you sure you want to delete this user ?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
@@ -117,6 +119,12 @@ namespace EF_Project
             dgv_users_UF.DataSource = userServices.GetAll();
             dgv_users_UF.Columns["Employee"].Visible = false;
             check_viewPass_UF.Checked = false;
+        }
+
+        private void btn_back_UF_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            prevForm.Show(); 
         }
     }
 }

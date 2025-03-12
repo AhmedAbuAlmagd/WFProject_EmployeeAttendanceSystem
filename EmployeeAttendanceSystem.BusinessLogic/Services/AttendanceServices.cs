@@ -23,8 +23,7 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
 
         public Attendance GetByEmployeeIdAndDate(int employeeId, DateOnly date)
         {
-            return context.Attendances
-                .FirstOrDefault(x => x.Employee_id == employeeId && x.Date == date);
+            return context.Attendances.FirstOrDefault(x => x.Employee_id == employeeId && x.Date == date);
         }
 
         public List<DateOnly> GetAllDates()
@@ -66,10 +65,27 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
         public void CreateDailyAttendanceRecords()
         {
             var today = DateOnly.FromDateTime(DateTime.Today);
-            if (today.DayOfWeek != DayOfWeek.Friday && today.DayOfWeek != DayOfWeek.Saturday)
+            var employees = context.Employees.Where(e => e.User.role.ToString() != "Admin").ToList();
+            foreach (var employee in employees)
             {
-                var employees = context.Employees.Where(e => e.User.role.ToString() != "Admin").ToList();
-                foreach (var employee in employees)
+                bool isWorkingDay = false;
+                switch (employee.workSchedule.ToString())
+                {
+                    case "fullTime":
+                    case "remote":
+                        isWorkingDay = today.DayOfWeek != DayOfWeek.Friday && today.DayOfWeek != DayOfWeek.Saturday;
+                        break;
+                    case "partTimeG1":
+                        isWorkingDay = today.DayOfWeek == DayOfWeek.Sunday || today.DayOfWeek == DayOfWeek.Tuesday || today.DayOfWeek == DayOfWeek.Thursday;
+                        break;
+                    case "partTimeG2":
+                        isWorkingDay = today.DayOfWeek == DayOfWeek.Tuesday || today.DayOfWeek == DayOfWeek.Wednesday || today.DayOfWeek == DayOfWeek.Thursday;
+                        break;
+                    default:
+                        isWorkingDay = false;
+                        break;
+                }
+                if (isWorkingDay)
                 {
                     var existingRecord = GetByEmployeeIdAndDate(employee.id, today);
                     if (existingRecord == null)
@@ -88,7 +104,6 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
                         context.Attendances.Add(attendance);
                     }
                 }
-                context.SaveChanges();
             }
         }
 

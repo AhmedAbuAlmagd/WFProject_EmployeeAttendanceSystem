@@ -16,10 +16,12 @@ namespace EF_Project.Forms
     public partial class DepartmentsForm : Form
     {
         DepartmentServices departmentServices;
-        public DepartmentsForm()
+        Form prevForm;
+        public DepartmentsForm(Form prevForm)
         {
             InitializeComponent();
             departmentServices = new DepartmentServices(new AttendanceContext());
+            this.prevForm = prevForm;
         }
 
         private void DepartmentsForm_Load(object sender, EventArgs e)
@@ -94,6 +96,11 @@ namespace EF_Project.Forms
             txt_deptName_DF.Text = "";
         }
 
-       
+        private void btn_back_DF_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            prevForm.Show();
+        }
+
     }
 }
