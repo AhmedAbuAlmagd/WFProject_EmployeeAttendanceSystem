@@ -48,13 +48,13 @@ namespace EF_Project.Forms
                     if (user.role.ToString() == "Employee")
                     {
                         employee_id = (int)user.employeeId;
-                        this.Hide();
+                        
                         new AttendanceForm(employee_id,this).Show();
                     }
                     else if (user.role.ToString() == "HR")
                     {
 
-                        this.Hide();
+                       
                         MessageBox.Show("Welcome to HR Dashboard", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         new HRDashboard(employee_id).Show();
                     }

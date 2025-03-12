@@ -7,6 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.Bouncycastleconnector;
+using Org.BouncyCastle.Crypto;
+
+using iText.IO.Font;
+using iText.Kernel.Font;
 using EmployeeAttendanceSystem.BusinessLogic.Services;
 using EmployeeAttendanceSystem.DataAccess.Context;
 using EmployeeAttendanceSystem.DataAccess.Models;
@@ -32,7 +42,7 @@ namespace EF_Project.Forms
             int currentYear = DateTime.Now.Year;
             int currentMonth = DateTime.Now.Month;
 
-            for (int i = 0; i < 2020; i++)
+            for (int i = 2020; i <= 2025; i++)
             {
                 cb_year_SRF.Items.Add(i);
 
@@ -50,7 +60,23 @@ namespace EF_Project.Forms
         {
 
             DateOnly date = DateOnly.FromDateTime(DateTime.Now);
-            dgv_showreport_SRF.DataSource = attendanceServices.GetDailyAttendance(date);
+            var dailyAttendance = attendanceServices.GetDailyAttendance(date)
+        .Select(a => new
+        {
+            EmployeeName = a.Employee != null ? a.Employee.name : "N/A",  
+            a.Date,
+            a.checkInTime,
+            a.checkOutTime,
+            a.WorkingHours,
+            a.attendanceStatus
+            ,a.IsLate,
+            a.IsEarlyDeparture
+        }).ToList();
+
+            dgv_showreport_SRF.DataSource = dailyAttendance;
+
+            //dgv_showreport_SRF.DataSource = attendanceServices.GetDailyAttendance(date)
+
 
         }
 
@@ -64,14 +90,28 @@ namespace EF_Project.Forms
             int empId = (int)cb_showemp_SRF.SelectedValue;
             DateTime startDate = DateTime.Now.AddDays(-7);
 
-            List<Attendance> weeklyReport = attendanceServices.GetAttendanceByEmpIdAndDate(empId, DateOnly.FromDateTime(startDate));
+            var weeklyReport = attendanceServices.GetAttendanceByEmpIdAndDate(empId, DateOnly.FromDateTime(startDate))
+       .Select(a => new
+       {
+           EmployeeName = a.Employee != null ? a.Employee.name : "N/A",
+           a.Date,
+           a.checkInTime,
+           a.checkOutTime,
+           a.WorkingHours,
+           a.attendanceStatus,
+           a.IsLate,
+           a.IsEarlyDeparture
+       }).ToList();
+
             dgv_showreport_SRF.DataSource = weeklyReport;
+
+            
         }
 
         private void btn_showmonth_SRF_Click(object sender, EventArgs e)
         {
 
-            if (cb_showemp_SRF == null)
+            if (cb_showemp_SRF.SelectedValue == null)
             {
                 MessageBox.Show("Please Choose One Employee", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -82,11 +122,26 @@ namespace EF_Project.Forms
                 return;
             }
             int empId = (int)cb_showemp_SRF.SelectedValue;
-            MessageBox.Show("Please Choose One Employee", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             int year = (int)cb_year_SRF.SelectedItem;
             int month = (int)cb_month_SRF.SelectedItem;
-            List<Attendance> monthlyReport = attendanceServices.GetMonthlyAttendance(empId, year, month);
+
+
+            var monthlyReport = attendanceServices.GetMonthlyAttendance(empId, year, month)
+        .Select(a => new
+        {
+            EmployeeName = a.Employee != null ? a.Employee.name : "N/A",
+            a.Date,
+            a.checkInTime,
+            a.checkOutTime,
+            a.WorkingHours,
+            a.attendanceStatus,
+            a.IsLate,
+            a.IsEarlyDeparture
+        }).ToList();
+
             dgv_showreport_SRF.DataSource = monthlyReport;
+            //List<Attendance> monthlyReport = attendanceServices.GetMonthlyAttendance(empId, year, month);
+            //dgv_showreport_SRF.DataSource = monthlyReport;
         }
 
         private void btn_back_SRF_Click(object sender, EventArgs e)
@@ -99,6 +154,71 @@ namespace EF_Project.Forms
         {
             this.Close();
             new LoginForm().Show();
+        }
+
+        //Reports
+
+        BouncyCastleDefaultFactory factory = new BouncyCastleDefaultFactory();
+
+        private void ExportDGVtoPDF(string filePath)
+        {
+            using (PdfWriter writer = new PdfWriter(filePath))
+            using (PdfDocument pdf = new PdfDocument(writer))
+            {
+                pdf.SetDefaultPageSize(iText.Kernel.Geom.PageSize.A4.Rotate());
+                using (Document document = new Document(pdf))
+                {
+                    document.Add(new Paragraph("Attendance Report").SetFontSize(20));
+
+                    float[] columnWidths = new float[dgv_showreport_SRF.ColumnCount];
+                    for (int i = 0; i < columnWidths.Length; i++)
+                    {
+                        columnWidths[i] = 1;
+                    }
+                    //Table table = new Table(dgv_showreport_SRF.ColumnCount).UseAllAvailableWidth();
+                    Table table = new Table(UnitValue.CreatePercentArray(columnWidths)).UseAllAvailableWidth();
+                    table.SetFontSize(8);
+                    table.SetPadding(2);
+
+                    foreach (DataGridViewColumn column in dgv_showreport_SRF.Columns)
+                    {
+                        table.AddHeaderCell(new Cell().Add(new Paragraph(column.HeaderText)));
+
+                    }
+
+                    foreach (DataGridViewRow row in dgv_showreport_SRF.Rows)
+                    {
+                        if (!row.IsNewRow)
+                        {
+                            foreach (DataGridViewCell cell in row.Cells)
+                            {
+                                table.AddCell(new Cell().Add(new Paragraph(cell.Value?.ToString() ?? "")));
+                            }
+                        }
+
+
+                    }
+                    document.Add(table);
+
+
+                }
+
+
+            }
+        }
+
+        private void btn_exportPDF_SRF_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "PDF Files|*.pdf",
+                Title = "Choose Place"
+            };
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ExportDGVtoPDF(saveFileDialog.FileName);
+                MessageBox.Show(" Report File Saved Successfully" , "Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
