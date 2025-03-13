@@ -29,7 +29,7 @@ namespace EF_Project.Forms
             this.prevForm = prevForm;
             this.employee_id = employee_id;
             LoadEmployees();
-            //LoadDates();
+            LoadDates();
         }
         private void LoadEmployees()
         {
@@ -43,16 +43,16 @@ namespace EF_Project.Forms
             cb_showbyuser_EAF.DisplayMember = "name";
             cb_showbyuser_EAF.ValueMember = "id";
         }
-        //private void LoadDates()
-        //{
-        //    var dates = attendanceServices.GetAllDates();
-        //    if(dates == null || dates.Count == 0)
-        //    {
-        //        MessageBox.Show("No Dates Recorded", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //        return;
-        //    }
-        //    //cb_showbydate_EAF.DataSource = dates;
-        //}
+        private void LoadDates()
+        {
+            var dates = attendanceServices.GetAllDates();
+            if(dates == null || dates.Count == 0)
+            {
+                MessageBox.Show("No Dates Recorded", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            cb_showbydate_EAF.DataSource = dates;
+        }
 
 
         private void btn_showbyuser_EAF_Click(object sender, EventArgs e)
