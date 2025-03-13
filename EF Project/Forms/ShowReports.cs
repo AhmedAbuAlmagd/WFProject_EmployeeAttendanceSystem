@@ -36,7 +36,7 @@ namespace EF_Project.Forms
             context = new AttendanceContext();
             attendanceServices = new AttendanceServices(context);
             employeeServices = new EmployeeServices(context);
-            cb_showemp_SRF.DataSource = employeeServices.GetAllEmp();
+            //cb_showemp_SRF.DataSource = employeeServices.GetAllEmp();
             cb_showemp_SRF.DisplayMember = "name";
             cb_showemp_SRF.ValueMember = "id";
             int currentYear = DateTime.Now.Year;

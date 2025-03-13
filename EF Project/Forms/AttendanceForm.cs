@@ -1,4 +1,5 @@
-﻿using EmployeeAttendanceSystem.BusinessLogic.Services;
+﻿using System.Runtime.CompilerServices;
+using EmployeeAttendanceSystem.BusinessLogic.Services;
 using EmployeeAttendanceSystem.DataAccess.Context;
 using EmployeeAttendanceSystem.DataAccess.Models;
 
@@ -22,8 +23,26 @@ namespace EF_Project.Forms
             logsServices = new LogsServices(context);
             employeeServices = new EmployeeServices(context);
             this.prevForm = prevForm;
+            toolTip.SetToolTip(btn_checkin_AF, "Click here to check-in.");
+            toolTip.SetToolTip(btn_checkout_AF, "Click here to check-out.");
+            toolTip.SetToolTip(btn_leaveRequest_AF, "Click here to request leave.");
+            notifyIcon1.Visible = true;
         }
+        //add tooltip to notify when emp is late for check-in
+        private ToolTip toolTip = new ToolTip();
 
+        private void ShowSystemNotification(string message)
+        {
+            notifyIcon1.Icon = SystemIcons.Warning;
+            notifyIcon1.BalloonTipTitle = "You are Late!";
+            notifyIcon1.BalloonTipText = message;
+            notifyIcon1.BalloonTipIcon = ToolTipIcon.Warning;
+            notifyIcon1.Visible = true;
+            //notifyIcon1.ShowBalloonTip(3000);
+         
+            notifyIcon1.ShowBalloonTip(1000, "You are Late!", "You are Late for Check-in Time!", ToolTipIcon.Warning);
+
+        }
         private void btn_checkin_AF_Click(object sender, EventArgs e)
         {
             try
@@ -37,6 +56,33 @@ namespace EF_Project.Forms
                     actionTime = DateTime.Now
                 };
                 logsServices.Add(log);
+                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employee_id, DateOnly.FromDateTime(DateTime.Now));
+                var attendance = attendanceList.FirstOrDefault();
+                //MessageBox.Show(attendance != null ? $"Attendance Found: {attendance.IsLate}" : "Attendance Not Found");
+
+                //MessageBox.Show($"Attendance Found: {attendanceList.Any()} \nTotal Records: {attendanceList.Count()}");
+
+                //if (attendanceList.Any())
+                //{
+                //    var att = attendanceList.First();
+                //    MessageBox.Show($"CheckInTime: {att.checkInTime}, IsLate: {att.IsLate}");
+                //}
+                if (attendance != null && attendance.IsLate )
+                {
+                    MessageBox.Show($"Is LAte : {attendance.IsLate}");
+                    toolTip.ToolTipTitle = "You Are Late !";
+                    toolTip.IsBalloon = true;
+                    toolTip.Show("You are Late !",this,  0, -50, 8000);
+                    //ShowSystemNotification("You are Late for Check-in Time!");
+                    try
+                    {
+                        ShowSystemNotification("You are Late for Check-in Time!");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error showing notification: {ex.Message}");
+                    }
+                }
 
                 MessageBox.Show("Checked-In Successfully", "Check-In", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

@@ -107,29 +107,71 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
             }
         }
 
+        //public void CheckIn(int employeeId)
+        //{
+        //    var today = DateOnly.FromDateTime(DateTime.Today);
+        //    var attendance = GetByEmployeeIdAndDate(employeeId, today);
+
+        //    if (attendance == null)
+        //    {
+        //        throw new InvalidOperationException("Attendance record not found for today.");
+        //    }
+
+        //    if (attendance.checkInTime.HasValue)
+        //    {
+        //        throw new InvalidOperationException("You have already checked in today.");
+        //    }
+
+        //    var now = TimeOnly.FromDateTime(DateTime.Now);
+        //    attendance.checkInTime = now;
+        //    attendance.attendanceStatus = AttendanceStatus.Present;
+        //    //check to notify
+        //    if(now > new TimeOnly(9,0,0))
+        //    {
+        //        attendance.IsLate = true;
+        //    }
+
+
+        //    context.SaveChanges();
+        //}
+
+        //update fun checkIn to save attendance time and notify if it is  late
         public void CheckIn(int employeeId)
         {
             var today = DateOnly.FromDateTime(DateTime.Today);
             var attendance = GetByEmployeeIdAndDate(employeeId, today);
-
+            var checkInTime = TimeOnly.FromDateTime(DateTime.Now);
             if (attendance == null)
             {
-                throw new InvalidOperationException("Attendance record not found for today.");
-            }
+                attendance = new Attendance
+                {
+                    Employee_id = employeeId,
+                    Date = today,
+                    checkInTime = TimeOnly.FromDateTime(DateTime.Now),
+                    attendanceStatus = AttendanceStatus.Present,
+                    IsLate = checkInTime > new TimeOnly(9, 0, 0)
 
-            if (attendance.checkInTime.HasValue)
+                };
+                context.Attendances.Add(attendance);
+
+            }
+            else
             {
-                throw new InvalidOperationException("You have already checked in today.");
-            }
+                if(attendance.checkInTime.HasValue)
+                {
+                    throw new InvalidOperationException("You have already checked in today.");
 
-            var now = TimeOnly.FromDateTime(DateTime.Now);
-            attendance.checkInTime = now;
-            attendance.attendanceStatus = AttendanceStatus.Present;
-            attendance.IsLate = now > new TimeOnly(9, 0, 0);
+                }
+                attendance.checkInTime = checkInTime;
+                attendance.attendanceStatus = AttendanceStatus.Present;
+                attendance.IsLate = checkInTime > new TimeOnly(9, 0, 0); 
+            }
 
             context.SaveChanges();
-        }
+            
 
+
+        }
         public void CheckOut(int employeeId)
         {
             var today = DateOnly.FromDateTime(DateTime.Today);
@@ -156,6 +198,7 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
             attendance.IsEarlyDeparture = now < new TimeOnly(17, 0, 0);
 
             context.SaveChanges();
+            
         }
 
 

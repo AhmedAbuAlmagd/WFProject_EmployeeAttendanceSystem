@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btn_checkin_AF = new Button();
             btn_checkout_AF = new Button();
             btn_leaveRequest_AF = new Button();
             btn_logout_AF = new Button();
+            toolTip1 = new ToolTip(components);
+            notifyIcon1 = new NotifyIcon(components);
             SuspendLayout();
             // 
             // btn_checkin_AF
@@ -74,6 +77,19 @@
             btn_logout_AF.UseVisualStyleBackColor = true;
             btn_logout_AF.Click += btn_logout_AF_Click;
             // 
+            // toolTip1
+            // 
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 200;
+            toolTip1.ReshowDelay = 100;
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.BalloonTipIcon = ToolTipIcon.Warning;
+            notifyIcon1.BalloonTipTitle = " You are Late !";
+            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Visible = true;
+            // 
             // AttendanceForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -95,5 +111,7 @@
         private Button btn_checkout_AF;
         private Button btn_leaveRequest_AF;
         private Button btn_logout_AF;
+        private ToolTip toolTip1;
+        private NotifyIcon notifyIcon1;
     }
 }

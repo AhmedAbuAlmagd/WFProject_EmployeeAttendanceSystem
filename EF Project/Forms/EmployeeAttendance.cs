@@ -51,7 +51,7 @@ namespace EF_Project.Forms
                 MessageBox.Show("No Dates Recorded", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            cb_showbydate_EAF.DataSource = dates;
+            //cb_showbydate_EAF.DataSource = dates;
         }
 
 
