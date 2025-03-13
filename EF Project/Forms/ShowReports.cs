@@ -75,9 +75,6 @@ namespace EF_Project.Forms
 
             dgv_showreport_SRF.DataSource = dailyAttendance;
 
-            //dgv_showreport_SRF.DataSource = attendanceServices.GetDailyAttendance(date)
-
-
         }
 
         private void btn_showweekreport_SRF_Click(object sender, EventArgs e)
@@ -140,8 +137,7 @@ namespace EF_Project.Forms
         }).ToList();
 
             dgv_showreport_SRF.DataSource = monthlyReport;
-            //List<Attendance> monthlyReport = attendanceServices.GetMonthlyAttendance(empId, year, month);
-            //dgv_showreport_SRF.DataSource = monthlyReport;
+    
         }
 
         private void btn_back_SRF_Click(object sender, EventArgs e)
@@ -175,7 +171,6 @@ namespace EF_Project.Forms
                     {
                         columnWidths[i] = 1;
                     }
-                    //Table table = new Table(dgv_showreport_SRF.ColumnCount).UseAllAvailableWidth();
                     Table table = new Table(UnitValue.CreatePercentArray(columnWidths)).UseAllAvailableWidth();
                     table.SetFontSize(8);
                     table.SetPadding(2);

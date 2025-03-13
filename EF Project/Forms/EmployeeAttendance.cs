@@ -82,7 +82,7 @@ namespace EF_Project.Forms
             }
 
             StringBuilder sb = new StringBuilder();
-            foreach (var record in attendanceList.Take(5))
+            foreach (var record in attendanceList.Take(1))
             {
                 sb.AppendLine($"Employee: {record.Employee.name}");
                 sb.AppendLine($"Date: {record.Date.ToString("yyyy-MM-dd")}");
@@ -92,7 +92,6 @@ namespace EF_Project.Forms
                 sb.AppendLine($"Status: {record.attendanceStatus}");
                 sb.AppendLine($"Late: {(record.IsLate ? "Yes" : "No")}");
                 sb.AppendLine($"Early Departure: {(record.IsEarlyDeparture ? "Yes" : "No")}");
-                sb.AppendLine("-------------------------------------------------------");
             }
             return sb.ToString();
         }
