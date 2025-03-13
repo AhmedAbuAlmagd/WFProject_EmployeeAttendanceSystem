@@ -39,6 +39,7 @@
             label2 = new Label();
             btn_back_SRF = new Button();
             btn_logout_SRF = new Button();
+            btn_exportPDF_SRF = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_showreport_SRF).BeginInit();
             SuspendLayout();
             // 
@@ -48,14 +49,14 @@
             dgv_showreport_SRF.Location = new Point(27, 291);
             dgv_showreport_SRF.Name = "dgv_showreport_SRF";
             dgv_showreport_SRF.RowHeadersWidth = 51;
-            dgv_showreport_SRF.Size = new Size(691, 188);
+            dgv_showreport_SRF.Size = new Size(735, 188);
             dgv_showreport_SRF.TabIndex = 0;
             // 
             // btn_dailyreport_SRF
             // 
-            btn_dailyreport_SRF.Location = new Point(245, 26);
+            btn_dailyreport_SRF.Location = new Point(27, 23);
             btn_dailyreport_SRF.Name = "btn_dailyreport_SRF";
-            btn_dailyreport_SRF.Size = new Size(361, 64);
+            btn_dailyreport_SRF.Size = new Size(282, 64);
             btn_dailyreport_SRF.TabIndex = 1;
             btn_dailyreport_SRF.Text = "Get Employees Daily Reports";
             btn_dailyreport_SRF.UseVisualStyleBackColor = true;
@@ -63,9 +64,9 @@
             // 
             // btn_showweekreport_SRF
             // 
-            btn_showweekreport_SRF.Location = new Point(27, 127);
+            btn_showweekreport_SRF.Location = new Point(27, 120);
             btn_showweekreport_SRF.Name = "btn_showweekreport_SRF";
-            btn_showweekreport_SRF.Size = new Size(282, 53);
+            btn_showweekreport_SRF.Size = new Size(282, 60);
             btn_showweekreport_SRF.TabIndex = 2;
             btn_showweekreport_SRF.Text = "Show Weekly Report Per Employee";
             btn_showweekreport_SRF.UseVisualStyleBackColor = true;
@@ -73,9 +74,9 @@
             // 
             // btn_showmonth_SRF
             // 
-            btn_showmonth_SRF.Location = new Point(27, 210);
+            btn_showmonth_SRF.Location = new Point(27, 200);
             btn_showmonth_SRF.Name = "btn_showmonth_SRF";
-            btn_showmonth_SRF.Size = new Size(282, 54);
+            btn_showmonth_SRF.Size = new Size(282, 64);
             btn_showmonth_SRF.TabIndex = 3;
             btn_showmonth_SRF.Text = "Show Monthly Report Per Employee";
             btn_showmonth_SRF.UseVisualStyleBackColor = true;
@@ -84,7 +85,7 @@
             // cb_showemp_SRF
             // 
             cb_showemp_SRF.FormattingEnabled = true;
-            cb_showemp_SRF.Location = new Point(366, 140);
+            cb_showemp_SRF.Location = new Point(371, 137);
             cb_showemp_SRF.Name = "cb_showemp_SRF";
             cb_showemp_SRF.Size = new Size(187, 28);
             cb_showemp_SRF.TabIndex = 4;
@@ -135,7 +136,7 @@
             // 
             // btn_logout_SRF
             // 
-            btn_logout_SRF.Location = new Point(624, 506);
+            btn_logout_SRF.Location = new Point(679, 506);
             btn_logout_SRF.Name = "btn_logout_SRF";
             btn_logout_SRF.Size = new Size(94, 45);
             btn_logout_SRF.TabIndex = 10;
@@ -143,11 +144,22 @@
             btn_logout_SRF.UseVisualStyleBackColor = true;
             btn_logout_SRF.Click += btn_logout_SRF_Click;
             // 
+            // btn_exportPDF_SRF
+            // 
+            btn_exportPDF_SRF.Location = new Point(546, 23);
+            btn_exportPDF_SRF.Name = "btn_exportPDF_SRF";
+            btn_exportPDF_SRF.Size = new Size(216, 64);
+            btn_exportPDF_SRF.TabIndex = 11;
+            btn_exportPDF_SRF.Text = "Export To PDF";
+            btn_exportPDF_SRF.UseVisualStyleBackColor = true;
+            btn_exportPDF_SRF.Click += btn_exportPDF_SRF_Click;
+            // 
             // ShowReports
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(803, 581);
+            Controls.Add(btn_exportPDF_SRF);
             Controls.Add(btn_logout_SRF);
             Controls.Add(btn_back_SRF);
             Controls.Add(label2);
@@ -177,6 +189,7 @@
         private Label label2;
         private Button btn_back_SRF;
         private Button btn_logout_SRF;
+        private Button btn_exportPDF_SRF;
 
 
         #endregion
