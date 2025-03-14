@@ -32,9 +32,37 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
         {
             return context.LeaveRequests.FirstOrDefault(x => x.id == request_id);
         }
-        public List<LeaveRequest> ShowByEmployeeId(int employee_id)
-        {   
-            return context.LeaveRequests.Where(x => x.EmployeeId == employee_id).ToList() ;
+        public List<object> GetAllRequestsE()
+        {
+            return context.LeaveRequests
+                .Where(r => r.Employee.User.role.ToString() != "HR")
+                .Select(r => new
+                {
+                    r.id,
+                    EmployeeName = r.Employee.name,
+                    r.requestDate,
+                    r.LeaveStartTime,
+                    r.LeaveEndTime,
+                    LeaveType = r.LeaveType.ToString(),
+                    requestStatus = r.requestStatus.ToString()
+                })
+                .ToList<object>();
+        }
+
+        public List<object> GetAllRequestsA()
+        {
+            return context.LeaveRequests
+                .Select(r => new
+                {
+                    r.id,
+                    EmployeeName = r.Employee.name,
+                    r.requestDate,
+                    r.LeaveStartTime,
+                    r.LeaveEndTime,
+                    LeaveType = r.LeaveType.ToString(),
+                    requestStatus = r.requestStatus.ToString()
+                })
+                .ToList<object>();
         }
 
         public void cancelRequest(int request_id)
@@ -52,7 +80,6 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
                 .Select(r => new
                 {
                     r.id,
-                    EmployeeId = r.EmployeeId,
                     EmployeeName = r.Employee.name,
                     r.requestDate,
                     r.LeaveStartTime,
@@ -69,7 +96,6 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
                 .Select(r => new
                 {
                     r.id,
-                    EmployeeId = r.EmployeeId,
                     EmployeeName = r.Employee.name,
                     r.requestDate,
                     r.LeaveStartTime,
@@ -86,7 +112,6 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
                 .Select(r => new
                 {
                     r.id,
-                    r.EmployeeId,
                     EmployeeName = r.Employee.name,
                     r.requestDate,
                     r.LeaveStartTime,

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
 using EmployeeAttendanceSystem.BusinessLogic.Services;
 using EmployeeAttendanceSystem.DataAccess.Context;
 using EmployeeAttendanceSystem.DataAccess.Models;
@@ -33,28 +25,41 @@ namespace EF_Project.Forms
             EmployeeServices = new EmployeeServices(context);
             this.preForm = preForm;
             this.employee_id = employee_id;
-        }
 
+            Design_Dgv();
+        }
+        private void Design_Dgv()
+        {
+            dgv_showrequests_SRF.BackgroundColor = Color.FromArgb(240, 240, 240);
+            dgv_showrequests_SRF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+            dgv_showrequests_SRF.DefaultCellStyle.ForeColor = Color.Black;
+            dgv_showrequests_SRF.GridColor = Color.Gray;
+
+            dgv_showrequests_SRF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
+            dgv_showrequests_SRF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv_showrequests_SRF.EnableHeadersVisualStyles = false;
+
+            dgv_showrequests_SRF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
+            dgv_showrequests_SRF.DefaultCellStyle.SelectionForeColor = Color.White;
+        }
         private void ShowRequests_Load(object sender, EventArgs e)
         {
-           try
-           {
-                if(EmployeeServices.GetById(employee_id).User.role.ToString() == "HR")
+            try
+            {
+                if (EmployeeServices.GetById(employee_id).User.role.ToString() == "HR")
                 {
                     dgv_showrequests_SRF.DataSource = LeaveRequestServices.GetAllPendingRequestsE();
-                    dgv_showrequests_SRF.Columns["EmployeeId"].Visible = false;
                 }
                 else
                 {
                     dgv_showrequests_SRF.DataSource = LeaveRequestServices.GetAllPendingRequestsA();
-                    dgv_showrequests_SRF.Columns["EmployeeId"].Visible = false;
                 }
                 LoadEmployees();
-           }
-           catch (Exception ex)
-           {
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
-           }
+            }
         }
 
         private void LoadEmployees()
@@ -62,8 +67,8 @@ namespace EF_Project.Forms
             try
             {
                 List<Employee> employees = new List<Employee>();
-                if(EmployeeServices.GetById(employee_id).User.role.ToString() == "HR")
-                 employees = EmployeeServices.GetAllEmp();
+                if (EmployeeServices.GetById(employee_id).User.role.ToString() == "HR")
+                    employees = EmployeeServices.GetAllEmp();
                 else
                     employees = EmployeeServices.GetAllEmpAndHr();
 
@@ -87,7 +92,7 @@ namespace EF_Project.Forms
             {
                 selectedRequestId = Convert.ToInt32(cb_showbyemp_SRF.SelectedValue);
 
-                var requests = LeaveRequestServices.ShowByEmployeeId(selectedRequestId);
+                var requests = LeaveRequestServices.ShowRequestsByEmpId(selectedRequestId);
                 if (requests == null || requests.Count == 0)
                 {
                     dgv_showrequests_SRF.DataSource = null;
@@ -102,7 +107,7 @@ namespace EF_Project.Forms
 
 
         private void dgv_showrequests_SRF_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
-        { 
+        {
             if (dgv_showrequests_SRF.SelectedRows.Count > 0)
             {
                 selectedRequestId = (int)dgv_showrequests_SRF.SelectedRows[0].Cells[0].Value;
@@ -121,9 +126,9 @@ namespace EF_Project.Forms
             {
                 LeaveRequestServices.ApproveLeaveRequest(selectedRequestId);
                 MessageBox.Show("Request Approved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
                 showRefreshRequests();
-                
+
             }
         }
 
@@ -152,5 +157,51 @@ namespace EF_Project.Forms
             this.Close();
             preForm.Show();
         }
+   
+        private void btn_showPendingRequests_SRF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (EmployeeServices.GetById(employee_id).User.role.ToString() == "HR")
+                {
+                    dgv_showrequests_SRF.DataSource = LeaveRequestServices.GetAllPendingRequestsE();
+                }
+                else
+                {
+                    dgv_showrequests_SRF.DataSource = LeaveRequestServices.GetAllPendingRequestsA();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_showAllRequests_SRF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (EmployeeServices.GetById(employee_id).User.role.ToString() == "HR")
+                {
+                    dgv_showrequests_SRF.DataSource = LeaveRequestServices.GetAllRequestsE();
+                }
+                else
+                {
+                    dgv_showrequests_SRF.DataSource = LeaveRequestServices.GetAllRequestsA();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_logout_SRF_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new LoginForm().Show();
+        }
+
+
     }
 }

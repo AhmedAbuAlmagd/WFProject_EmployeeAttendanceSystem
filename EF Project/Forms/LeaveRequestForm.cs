@@ -101,7 +101,7 @@ namespace EF_Project.Forms
 
         private void ShowLeaveRequests()
         {
-            dgv_ShowRequests_LRF.DataSource = leaveRequestServices.ShowByEmployeeId(employee_id);
+            dgv_ShowRequests_LRF.DataSource = leaveRequestServices.ShowRequestsByEmpId(employee_id);
             dgv_ShowRequests_LRF.Columns["EmployeeId"].Visible = false;
             dgv_ShowRequests_LRF.Columns["Employee"].Visible = false;
             btn_cancelRequest_LRF.Visible = false;
