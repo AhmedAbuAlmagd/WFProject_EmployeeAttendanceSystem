@@ -20,6 +20,7 @@ namespace EF_Project.Forms
         }
 
        
+
         private void btn_deptsManagement_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -29,19 +30,21 @@ namespace EF_Project.Forms
         private void btn_usersManagement_HRD_Click(object sender, EventArgs e)
         {
             this.Hide();
+
             new UsersForm(this).Show();
         }
 
         private void btn_empmanage_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new EmployeeManagment(admin_id,this).Show();
+            new EmployeeManagment(admin_id, this).Show();
         }
 
         private void btn_showrequest_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new ShowRequests(admin_id,this).Show();
+
+            new ShowRequests(admin_id, this).Show();
         }
 
 
@@ -54,13 +57,20 @@ namespace EF_Project.Forms
         private void btn_empattend_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new EmployeeAttendance(admin_id,this).Show();
+
+            new EmployeeAttendance(admin_id, this).Show();
         }
 
         private void btn_logout_HRDF_Click(object sender, EventArgs e)
         {
-            this.Close();
-            new LoginForm().Show();
+            this.Hide();
+            new LoginForm().Close();
+        }
+
+        private void btn_showlogs_ADF_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new  LogsForm().Show();
         }
     }
 }
