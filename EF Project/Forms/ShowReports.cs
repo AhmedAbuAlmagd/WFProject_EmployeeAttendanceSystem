@@ -36,7 +36,7 @@ namespace EF_Project.Forms
             context = new AttendanceContext();
             attendanceServices = new AttendanceServices(context);
             employeeServices = new EmployeeServices(context);
-            //cb_showemp_SRF.DataSource = employeeServices.GetAllEmp();
+            cb_showemp_SRF.DataSource = employeeServices.GetAllEmp();
             cb_showemp_SRF.DisplayMember = "name";
             cb_showemp_SRF.ValueMember = "id";
             int currentYear = DateTime.Now.Year;
@@ -48,12 +48,14 @@ namespace EF_Project.Forms
 
             }
             cb_year_SRF.SelectedItem = currentYear;
-            for (int i = 0; i < 12; i++)
+            for (int i = 1; i <= 12; i++)
             {
                 cb_month_SRF.Items.Add(i);
             }
             cb_month_SRF.SelectedItem = currentMonth;
             this.prevForm = prevForm;
+
+            Design_Dgv();
         }
 
         private void btn_dailyreport_SRF_Click(object sender, EventArgs e)
@@ -63,13 +65,14 @@ namespace EF_Project.Forms
             var dailyAttendance = attendanceServices.GetDailyAttendance(date)
         .Select(a => new
         {
-            EmployeeName = a.Employee != null ? a.Employee.name : "N/A",  
+            EmployeeName = a.Employee != null ? a.Employee.name : "N/A",
             a.Date,
             a.checkInTime,
             a.checkOutTime,
             a.WorkingHours,
             a.attendanceStatus
-            ,a.IsLate,
+            ,
+            a.IsLate,
             a.IsEarlyDeparture
         }).ToList();
 
@@ -102,7 +105,7 @@ namespace EF_Project.Forms
 
             dgv_showreport_SRF.DataSource = weeklyReport;
 
-            
+
         }
 
         private void btn_showmonth_SRF_Click(object sender, EventArgs e)
@@ -137,7 +140,7 @@ namespace EF_Project.Forms
         }).ToList();
 
             dgv_showreport_SRF.DataSource = monthlyReport;
-    
+
         }
 
         private void btn_back_SRF_Click(object sender, EventArgs e)
@@ -148,7 +151,7 @@ namespace EF_Project.Forms
 
         private void btn_logout_SRF_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             new LoginForm().Show();
         }
 
@@ -194,8 +197,6 @@ namespace EF_Project.Forms
 
                     }
                     document.Add(table);
-
-
                 }
 
 
@@ -209,11 +210,32 @@ namespace EF_Project.Forms
                 Filter = "PDF Files|*.pdf",
                 Title = "Choose Place"
             };
-            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 ExportDGVtoPDF(saveFileDialog.FileName);
-                MessageBox.Show(" Report File Saved Successfully" , "Success",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(" Report File Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void ShowReports_Load(object sender, EventArgs e)
+        {
+            //if 
+            cb_showemp_SRF.DataSource = employeeServices.GetAllEmp();
+        }
+
+        private void Design_Dgv()
+        {
+            dgv_showreport_SRF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_showreport_SRF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+            dgv_showreport_SRF.DefaultCellStyle.ForeColor = Color.Black;
+            dgv_showreport_SRF.GridColor = Color.Gray;
+
+            dgv_showreport_SRF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
+            dgv_showreport_SRF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv_showreport_SRF.EnableHeadersVisualStyles = false;
+
+            dgv_showreport_SRF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
+            dgv_showreport_SRF.DefaultCellStyle.SelectionForeColor = Color.White;
         }
     }
 }

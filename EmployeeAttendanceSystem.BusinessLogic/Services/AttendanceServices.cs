@@ -169,9 +169,9 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
 
             context.SaveChanges();
             
-
-
         }
+
+
         public void CheckOut(int employeeId)
         {
             var today = DateOnly.FromDateTime(DateTime.Today);

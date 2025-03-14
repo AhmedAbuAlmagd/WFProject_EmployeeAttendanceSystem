@@ -1,4 +1,5 @@
-﻿using EmployeeAttendanceSystem.BusinessLogic.Services;
+﻿using EF_Project.Forms;
+using EmployeeAttendanceSystem.BusinessLogic.Services;
 using EmployeeAttendanceSystem.DataAccess.Context;
 using EmployeeAttendanceSystem.DataAccess.Models;
 
@@ -142,7 +143,13 @@ namespace EF_Project
         private void btn_back_UF_Click(object sender, EventArgs e)
         {
             this.Close();
-            prevForm.Show(); 
+            prevForm.Show();
+        }
+
+        private void btn_logout_SRF_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new LoginForm().Show();
         }
     }
 }

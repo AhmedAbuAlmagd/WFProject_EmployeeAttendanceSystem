@@ -42,6 +42,7 @@
             combo_employee_UF = new ComboBox();
             label4 = new Label();
             btn_back_UF = new Button();
+            btn_logout_SRF = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_users_UF).BeginInit();
             SuspendLayout();
             // 
@@ -129,7 +130,7 @@
             // 
             // btn_deleteUser_UF
             // 
-            btn_deleteUser_UF.BackColor = Color.FromArgb(208, 2, 27);
+            btn_deleteUser_UF.BackColor = Color.FromArgb(208, 40, 80);
             btn_deleteUser_UF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_deleteUser_UF.ForeColor = Color.White;
             btn_deleteUser_UF.Location = new Point(644, 374);
@@ -188,7 +189,7 @@
             btn_back_UF.BackColor = Color.FromArgb(75, 75, 75);
             btn_back_UF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_back_UF.ForeColor = Color.White;
-            btn_back_UF.Location = new Point(737, 491);
+            btn_back_UF.Location = new Point(605, 494);
             btn_back_UF.Name = "btn_back_UF";
             btn_back_UF.Size = new Size(116, 44);
             btn_back_UF.TabIndex = 41;
@@ -196,12 +197,26 @@
             btn_back_UF.UseVisualStyleBackColor = false;
             btn_back_UF.Click += btn_back_UF_Click;
             // 
+            // btn_logout_SRF
+            // 
+            btn_logout_SRF.BackColor = Color.FromArgb(75, 75, 75);
+            btn_logout_SRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            btn_logout_SRF.ForeColor = SystemColors.Control;
+            btn_logout_SRF.Location = new Point(737, 495);
+            btn_logout_SRF.Name = "btn_logout_SRF";
+            btn_logout_SRF.Size = new Size(116, 44);
+            btn_logout_SRF.TabIndex = 42;
+            btn_logout_SRF.Text = "Log Out";
+            btn_logout_SRF.UseVisualStyleBackColor = false;
+            btn_logout_SRF.Click += btn_logout_SRF_Click;
+            // 
             // UsersForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(225, 223, 186);
             ClientSize = new Size(865, 550);
+            Controls.Add(btn_logout_SRF);
             Controls.Add(btn_back_UF);
             Controls.Add(combo_employee_UF);
             Controls.Add(label4);
@@ -240,5 +255,6 @@
         private ComboBox combo_employee_UF;
         private Label label4;
         private Button btn_back_UF;
+        private Button btn_logout_SRF;
     }
 }

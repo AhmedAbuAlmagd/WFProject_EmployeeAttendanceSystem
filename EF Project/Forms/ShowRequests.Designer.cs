@@ -54,7 +54,7 @@
             // 
             // btn_accept_SRF
             // 
-            btn_accept_SRF.BackColor = Color.ForestGreen;
+            btn_accept_SRF.BackColor = Color.FromArgb(20, 120, 90);
             btn_accept_SRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_accept_SRF.ForeColor = Color.Snow;
             btn_accept_SRF.Location = new Point(628, 261);
@@ -67,7 +67,7 @@
             // 
             // btn_reject_SRF
             // 
-            btn_reject_SRF.BackColor = Color.FromArgb(208, 2, 27);
+            btn_reject_SRF.BackColor = Color.FromArgb(208, 40, 80);
             btn_reject_SRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_reject_SRF.ForeColor = SystemColors.ButtonHighlight;
             btn_reject_SRF.Location = new Point(628, 373);
@@ -105,7 +105,7 @@
             btn_back_SRF.BackColor = Color.FromArgb(75, 75, 75);
             btn_back_SRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_back_SRF.ForeColor = SystemColors.ButtonHighlight;
-            btn_back_SRF.Location = new Point(694, 494);
+            btn_back_SRF.Location = new Point(572, 494);
             btn_back_SRF.Name = "btn_back_SRF";
             btn_back_SRF.Size = new Size(116, 44);
             btn_back_SRF.TabIndex = 5;
@@ -118,7 +118,7 @@
             btn_logout_SRF.BackColor = Color.FromArgb(75, 75, 75);
             btn_logout_SRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_logout_SRF.ForeColor = SystemColors.Control;
-            btn_logout_SRF.Location = new Point(572, 494);
+            btn_logout_SRF.Location = new Point(694, 494);
             btn_logout_SRF.Name = "btn_logout_SRF";
             btn_logout_SRF.Size = new Size(116, 44);
             btn_logout_SRF.TabIndex = 6;
