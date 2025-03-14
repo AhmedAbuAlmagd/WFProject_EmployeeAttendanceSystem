@@ -35,11 +35,12 @@
             btn_empattend_HRF = new Button();
             btn_usersManagement_HRD = new Button();
             btn_deptsManagement_HRF = new Button();
+            btn_showlogs_ADF = new Button();
             SuspendLayout();
             // 
             // btn_logout_HRDF
             // 
-            btn_logout_HRDF.Location = new Point(683, 435);
+            btn_logout_HRDF.Location = new Point(697, 558);
             btn_logout_HRDF.Name = "btn_logout_HRDF";
             btn_logout_HRDF.Size = new Size(137, 50);
             btn_logout_HRDF.TabIndex = 13;
@@ -49,7 +50,7 @@
             // 
             // btn_showreport_HRF
             // 
-            btn_showreport_HRF.Location = new Point(214, 414);
+            btn_showreport_HRF.Location = new Point(214, 424);
             btn_showreport_HRF.Name = "btn_showreport_HRF";
             btn_showreport_HRF.Size = new Size(397, 57);
             btn_showreport_HRF.TabIndex = 12;
@@ -59,7 +60,7 @@
             // 
             // btn_showrequest_HRF
             // 
-            btn_showrequest_HRF.Location = new Point(214, 335);
+            btn_showrequest_HRF.Location = new Point(214, 339);
             btn_showrequest_HRF.Name = "btn_showrequest_HRF";
             btn_showrequest_HRF.Size = new Size(397, 57);
             btn_showrequest_HRF.TabIndex = 11;
@@ -107,11 +108,22 @@
             btn_deptsManagement_HRF.UseVisualStyleBackColor = true;
             btn_deptsManagement_HRF.Click += btn_deptsManagement_HRF_Click;
             // 
+            // btn_showlogs_ADF
+            // 
+            btn_showlogs_ADF.Location = new Point(214, 508);
+            btn_showlogs_ADF.Name = "btn_showlogs_ADF";
+            btn_showlogs_ADF.Size = new Size(397, 58);
+            btn_showlogs_ADF.TabIndex = 14;
+            btn_showlogs_ADF.Text = "Show Logs";
+            btn_showlogs_ADF.UseVisualStyleBackColor = true;
+            btn_showlogs_ADF.Click += btn_showlogs_ADF_Click;
+            // 
             // AdminDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(846, 497);
+            ClientSize = new Size(846, 634);
+            Controls.Add(btn_showlogs_ADF);
             Controls.Add(btn_logout_HRDF);
             Controls.Add(btn_showreport_HRF);
             Controls.Add(btn_showrequest_HRF);
@@ -133,5 +145,6 @@
         private Button btn_empattend_HRF;
         private Button btn_usersManagement_HRD;
         private Button btn_deptsManagement_HRF;
+        private Button btn_showlogs_ADF;
     }
 }
