@@ -1,6 +1,8 @@
-using EmployeeAttendanceSystem.BusinessLogic.Services;
+﻿using EmployeeAttendanceSystem.BusinessLogic.Services;
 using EmployeeAttendanceSystem.DataAccess.Context;
 using EmployeeAttendanceSystem.DataAccess.Models;
+using MaterialSkin.Controls;
+using System.Windows.Forms;
 
 namespace EF_Project
 {
@@ -17,6 +19,21 @@ namespace EF_Project
             userServices = new UserServices(attendanceContext);
             employeeServices = new EmployeeServices(attendanceContext);
             this.prevForm = prevForm;
+
+            ;
+
+           
+dgv_users_UF.BackgroundColor = Color.FromArgb(240, 240, 240);
+dgv_users_UF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+dgv_users_UF.DefaultCellStyle.ForeColor = Color.Black;
+dgv_users_UF.GridColor = Color.Gray;
+
+dgv_users_UF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
+dgv_users_UF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+dgv_users_UF.EnableHeadersVisualStyles = false;
+
+dgv_users_UF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
+dgv_users_UF.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
         private void UsersForm_Load(object sender, EventArgs e)

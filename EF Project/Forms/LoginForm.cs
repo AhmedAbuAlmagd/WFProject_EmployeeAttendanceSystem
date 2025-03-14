@@ -9,7 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MaterialSkin;
+using MaterialSkin.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace EF_Project.Forms
 {
     public partial class LoginForm : Form
@@ -29,6 +31,8 @@ namespace EF_Project.Forms
             _timer.Interval = 60000;
             _timer.Tick += Timer_Tick;
             _timer.Start();
+
+           
         }
         int employee_id;
         private void btn_login_LF_Click(object sender, EventArgs e)
@@ -48,19 +52,19 @@ namespace EF_Project.Forms
                     if (user.role.ToString() == "Employee")
                     {
                         employee_id = (int)user.employeeId;
-                        
-                        new AttendanceForm(employee_id,this).Show();
+
+                        new AttendanceForm(employee_id, this).Show();
                     }
                     else if (user.role.ToString() == "HR")
                     {
 
-                        
+
                         MessageBox.Show("Welcome to HR Dashboard", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         new HRDashboard(employee_id).Show();
                     }
                     else if (user.role.ToString() == "Admin")
                     {
-                        
+
                         employee_id = (int)user.employeeId;
                         new AdminDashboard(employee_id).Show();
                     }
@@ -87,5 +91,6 @@ namespace EF_Project.Forms
                 _attendanceServices.CreateDailyAttendanceRecords();
             }
         }
+      
     }
 }

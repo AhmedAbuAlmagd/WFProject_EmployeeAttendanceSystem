@@ -52,37 +52,37 @@
             // dgv_emp_EMF
             // 
             dgv_emp_EMF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_emp_EMF.Location = new Point(34, 320);
+            dgv_emp_EMF.Location = new Point(12, 292);
             dgv_emp_EMF.Name = "dgv_emp_EMF";
             dgv_emp_EMF.RowHeadersWidth = 51;
-            dgv_emp_EMF.Size = new Size(791, 199);
+            dgv_emp_EMF.Size = new Size(614, 289);
             dgv_emp_EMF.TabIndex = 0;
             dgv_emp_EMF.RowHeaderMouseDoubleClick += dgv_emp_EMF_RowHeaderMouseDoubleClick;
             // 
             // txt_name_EMF
             // 
-            txt_name_EMF.Location = new Point(134, 25);
+            txt_name_EMF.Location = new Point(134, 31);
             txt_name_EMF.Name = "txt_name_EMF";
             txt_name_EMF.Size = new Size(125, 27);
             txt_name_EMF.TabIndex = 1;
             // 
             // txt_position_EMF
             // 
-            txt_position_EMF.Location = new Point(134, 85);
+            txt_position_EMF.Location = new Point(134, 91);
             txt_position_EMF.Name = "txt_position_EMF";
             txt_position_EMF.Size = new Size(125, 27);
             txt_position_EMF.TabIndex = 2;
             // 
             // txt_email_EMF
             // 
-            txt_email_EMF.Location = new Point(134, 150);
+            txt_email_EMF.Location = new Point(134, 156);
             txt_email_EMF.Name = "txt_email_EMF";
             txt_email_EMF.Size = new Size(125, 27);
             txt_email_EMF.TabIndex = 3;
             // 
             // txt_phone_EMF
             // 
-            txt_phone_EMF.Location = new Point(134, 228);
+            txt_phone_EMF.Location = new Point(549, 155);
             txt_phone_EMF.Name = "txt_phone_EMF";
             txt_phone_EMF.Size = new Size(125, 27);
             txt_phone_EMF.TabIndex = 4;
@@ -90,7 +90,7 @@
             // cb_schedule_EMF
             // 
             cb_schedule_EMF.FormattingEnabled = true;
-            cb_schedule_EMF.Location = new Point(549, 25);
+            cb_schedule_EMF.Location = new Point(549, 31);
             cb_schedule_EMF.Name = "cb_schedule_EMF";
             cb_schedule_EMF.Size = new Size(151, 28);
             cb_schedule_EMF.TabIndex = 5;
@@ -98,14 +98,14 @@
             // cb_dept_EMF
             // 
             cb_dept_EMF.FormattingEnabled = true;
-            cb_dept_EMF.Location = new Point(549, 96);
+            cb_dept_EMF.Location = new Point(549, 93);
             cb_dept_EMF.Name = "cb_dept_EMF";
             cb_dept_EMF.Size = new Size(151, 28);
             cb_dept_EMF.TabIndex = 6;
             // 
             // btn_getdata_EMF
             // 
-            btn_getdata_EMF.Location = new Point(430, 172);
+            btn_getdata_EMF.Location = new Point(197, 218);
             btn_getdata_EMF.Name = "btn_getdata_EMF";
             btn_getdata_EMF.Size = new Size(327, 45);
             btn_getdata_EMF.TabIndex = 7;
@@ -115,7 +115,7 @@
             // 
             // btn_add_EMF
             // 
-            btn_add_EMF.Location = new Point(430, 253);
+            btn_add_EMF.Location = new Point(696, 311);
             btn_add_EMF.Name = "btn_add_EMF";
             btn_add_EMF.Size = new Size(94, 41);
             btn_add_EMF.TabIndex = 8;
@@ -125,7 +125,7 @@
             // 
             // btn_edit_EMF
             // 
-            btn_edit_EMF.Location = new Point(567, 253);
+            btn_edit_EMF.Location = new Point(696, 386);
             btn_edit_EMF.Name = "btn_edit_EMF";
             btn_edit_EMF.Size = new Size(94, 41);
             btn_edit_EMF.TabIndex = 9;
@@ -135,7 +135,7 @@
             // 
             // btn_delete_EMF
             // 
-            btn_delete_EMF.Location = new Point(714, 253);
+            btn_delete_EMF.Location = new Point(696, 460);
             btn_delete_EMF.Name = "btn_delete_EMF";
             btn_delete_EMF.Size = new Size(94, 41);
             btn_delete_EMF.TabIndex = 10;
@@ -146,7 +146,7 @@
             // lbl_empname_EM
             // 
             lbl_empname_EM.AutoSize = true;
-            lbl_empname_EM.Location = new Point(34, 33);
+            lbl_empname_EM.Location = new Point(46, 34);
             lbl_empname_EM.Name = "lbl_empname_EM";
             lbl_empname_EM.Size = new Size(49, 20);
             lbl_empname_EM.TabIndex = 11;
@@ -155,7 +155,7 @@
             // lbl_position_EMF
             // 
             lbl_position_EMF.AutoSize = true;
-            lbl_position_EMF.Location = new Point(34, 92);
+            lbl_position_EMF.Location = new Point(34, 96);
             lbl_position_EMF.Name = "lbl_position_EMF";
             lbl_position_EMF.Size = new Size(61, 20);
             lbl_position_EMF.TabIndex = 12;
@@ -164,7 +164,7 @@
             // lbl_email_EMF
             // 
             lbl_email_EMF.AutoSize = true;
-            lbl_email_EMF.Location = new Point(34, 157);
+            lbl_email_EMF.Location = new Point(46, 159);
             lbl_email_EMF.Name = "lbl_email_EMF";
             lbl_email_EMF.Size = new Size(46, 20);
             lbl_email_EMF.TabIndex = 13;
@@ -173,7 +173,7 @@
             // lbl_phone_EMF
             // 
             lbl_phone_EMF.AutoSize = true;
-            lbl_phone_EMF.Location = new Point(34, 235);
+            lbl_phone_EMF.Location = new Point(474, 159);
             lbl_phone_EMF.Name = "lbl_phone_EMF";
             lbl_phone_EMF.Size = new Size(50, 20);
             lbl_phone_EMF.TabIndex = 14;
@@ -182,7 +182,7 @@
             // lbl_schedule_EMF
             // 
             lbl_schedule_EMF.AutoSize = true;
-            lbl_schedule_EMF.Location = new Point(417, 33);
+            lbl_schedule_EMF.Location = new Point(417, 34);
             lbl_schedule_EMF.Name = "lbl_schedule_EMF";
             lbl_schedule_EMF.Size = new Size(107, 20);
             lbl_schedule_EMF.TabIndex = 15;
@@ -191,7 +191,7 @@
             // lbl_dept_EMF
             // 
             lbl_dept_EMF.AutoSize = true;
-            lbl_dept_EMF.Location = new Point(445, 104);
+            lbl_dept_EMF.Location = new Point(438, 98);
             lbl_dept_EMF.Name = "lbl_dept_EMF";
             lbl_dept_EMF.Size = new Size(86, 20);
             lbl_dept_EMF.TabIndex = 16;
@@ -199,9 +199,9 @@
             // 
             // btn_back_EMF
             // 
-            btn_back_EMF.Location = new Point(34, 537);
+            btn_back_EMF.Location = new Point(769, 543);
             btn_back_EMF.Name = "btn_back_EMF";
-            btn_back_EMF.Size = new Size(134, 46);
+            btn_back_EMF.Size = new Size(79, 38);
             btn_back_EMF.TabIndex = 17;
             btn_back_EMF.Text = "Back";
             btn_back_EMF.UseVisualStyleBackColor = true;
@@ -211,7 +211,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(875, 595);
+            BackColor = SystemColors.ButtonHighlight;
+            ClientSize = new Size(877, 650);
             Controls.Add(btn_back_EMF);
             Controls.Add(lbl_dept_EMF);
             Controls.Add(lbl_schedule_EMF);
