@@ -129,7 +129,7 @@ namespace EF_Project.Forms
                 if (employeeServices.GetById(employee_id).User.role.ToString() == "Employee")
                 {
                     this.Close();
-                    new LoginForm().Show();
+                    //new LoginForm().Show();
                 }
                 else
                 {

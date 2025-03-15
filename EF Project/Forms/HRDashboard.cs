@@ -32,7 +32,7 @@ namespace EF_Project.Forms
         private void btn_empmanage_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new EmployeeManagement(hr_id,this).Show();
+            new EmployeeManagement(hr_id, this).Show();
         }
 
         private void btn_showrequest_HRF_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace EF_Project.Forms
         private void btn_empattend_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new EmployeeAttendance(hr_id, this).Show();
+            new EmployeeWithFrequentAbsence().Show();
         }
 
         private void btn_logout_HRDF_Click(object sender, EventArgs e)

@@ -33,6 +33,21 @@ namespace EF_Project.Forms
             InitializeComponent();
             context = new AttendanceContext();
             attendanceServices = new AttendanceServices(context);
+            Design_Dgv();
+        }
+        private void Design_Dgv()
+        {
+            dgv_empfrequentabsence_EFAF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_empfrequentabsence_EFAF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+            dgv_empfrequentabsence_EFAF.DefaultCellStyle.ForeColor = Color.Black;
+            dgv_empfrequentabsence_EFAF.GridColor = Color.Gray;
+
+            dgv_empfrequentabsence_EFAF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
+            dgv_empfrequentabsence_EFAF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv_empfrequentabsence_EFAF.EnableHeadersVisualStyles = false;
+
+            dgv_empfrequentabsence_EFAF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
+            dgv_empfrequentabsence_EFAF.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
         private void btn_showabsenceemployees_EFAF_Click(object sender, EventArgs e)
