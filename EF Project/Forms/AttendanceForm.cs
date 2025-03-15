@@ -38,8 +38,7 @@ namespace EF_Project.Forms
             notifyIcon1.BalloonTipText = message;
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Warning;
             notifyIcon1.Visible = true;
-            //notifyIcon1.ShowBalloonTip(3000);
-         
+
             notifyIcon1.ShowBalloonTip(1000, "You are Late!", "You are Late for Check-in Time!", ToolTipIcon.Warning);
 
         }
@@ -55,25 +54,17 @@ namespace EF_Project.Forms
                     action = EmployeeAttendanceSystem.DataAccess.Models.Action.checkIn,
                     actionTime = DateTime.Now
                 };
+
                 logsServices.Add(log);
-                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employee_id, DateOnly.FromDateTime(DateTime.Now) , DateOnly.FromDateTime(DateTime.Now));
+                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employee_id, DateOnly.FromDateTime(DateTime.Now));
                 var attendance = attendanceList.FirstOrDefault();
-                //MessageBox.Show(attendance != null ? $"Attendance Found: {attendance.IsLate}" : "Attendance Not Found");
 
-                //MessageBox.Show($"Attendance Found: {attendanceList.Any()} \nTotal Records: {attendanceList.Count()}");
-
-                //if (attendanceList.Any())
-                //{
-                //    var att = attendanceList.First();
-                //    MessageBox.Show($"CheckInTime: {att.checkInTime}, IsLate: {att.IsLate}");
-                //}
-                if (attendance != null && attendance.IsLate )
+                if (attendance != null && attendance.IsLate)
                 {
                     MessageBox.Show($"Is LAte : {attendance.IsLate}");
                     toolTip.ToolTipTitle = "You Are Late !";
                     toolTip.IsBalloon = true;
-                    toolTip.Show("You are Late !",this,  0, -50, 8000);
-                    //ShowSystemNotification("You are Late for Check-in Time!");
+                    toolTip.Show("You are Late !", this, 0, -50, 8000);
                     try
                     {
                         ShowSystemNotification("You are Late for Check-in Time!");
@@ -129,7 +120,6 @@ namespace EF_Project.Forms
                 if (employeeServices.GetById(employee_id).User.role.ToString() == "Employee")
                 {
                     this.Close();
-                    //new LoginForm().Show();
                 }
                 else
                 {
@@ -137,7 +127,7 @@ namespace EF_Project.Forms
                     prevForm.Show();
                 }
             }
-           
+
         }
 
         private void AttendanceForm_Load(object sender, EventArgs e)

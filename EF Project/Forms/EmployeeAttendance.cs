@@ -148,7 +148,7 @@ namespace EF_Project.Forms
         {
             int employeeId = (int)dgv_empattend_EAF.SelectedRows[0].Cells["Employee_id"].Value;
             DateOnly selectedDate = (DateOnly)dgv_empattend_EAF.SelectedRows[0].Cells["Date"].Value;
-            var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employeeId, selectedDate , selectedDate);
+            var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employeeId, selectedDate);
 
             string qrData = GenerateQrData(attendanceList);
             Bitmap qrCode = GenerateQrCode(qrData);
