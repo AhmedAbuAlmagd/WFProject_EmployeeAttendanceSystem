@@ -56,7 +56,7 @@ namespace EF_Project.Forms
                     actionTime = DateTime.Now
                 };
                 logsServices.Add(log);
-                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employee_id, DateOnly.FromDateTime(DateTime.Now));
+                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employee_id, DateOnly.FromDateTime(DateTime.Now) , DateOnly.FromDateTime(DateTime.Now));
                 var attendance = attendanceList.FirstOrDefault();
                 //MessageBox.Show(attendance != null ? $"Attendance Found: {attendance.IsLate}" : "Attendance Not Found");
 

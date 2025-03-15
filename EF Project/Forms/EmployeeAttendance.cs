@@ -129,7 +129,7 @@ namespace EF_Project.Forms
                 int employeeId = (int)cb_showbyuser_EAF.SelectedValue;
                 DateOnly selectedDate = DateOnly.FromDateTime(date_EAF.Value.Date);
 
-                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employeeId, selectedDate);
+                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employeeId, selectedDate , selectedDate);
 
                 dgv_empattend_EAF.DataSource = attendanceList;
                 dgv_empattend_EAF.Columns["Employee"].Visible = false;
@@ -148,7 +148,7 @@ namespace EF_Project.Forms
         {
             int employeeId = (int)dgv_empattend_EAF.SelectedRows[0].Cells["Employee_id"].Value;
             DateOnly selectedDate = (DateOnly)dgv_empattend_EAF.SelectedRows[0].Cells["Date"].Value;
-            var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employeeId, selectedDate);
+            var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employeeId, selectedDate , selectedDate);
 
             string qrData = GenerateQrData(attendanceList);
             Bitmap qrCode = GenerateQrCode(qrData);

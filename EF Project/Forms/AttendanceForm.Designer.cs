@@ -68,7 +68,7 @@
             // 
             // btn_leaveRequest_AF
             // 
-            btn_leaveRequest_AF.BackColor = Color.FromArgb(30, 58, 138);
+            btn_leaveRequest_AF.BackColor = Color.FromArgb(53, 122, 189);
             btn_leaveRequest_AF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_leaveRequest_AF.ForeColor = SystemColors.ControlLightLight;
             btn_leaveRequest_AF.Location = new Point(610, 350);
@@ -118,8 +118,8 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
-            ClientSize = new Size(865, 544);
+            BackColor = Color.Linen;
+            ClientSize = new Size(865, 549);
             Controls.Add(pictureBox1);
             Controls.Add(btn_logout_AF);
             Controls.Add(btn_leaveRequest_AF);

@@ -136,7 +136,7 @@
             // 
             // dgv_ShowRequests_LRF
             // 
-            dgv_ShowRequests_LRF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_ShowRequests_LRF.BackgroundColor = Color.Ivory;
             dgv_ShowRequests_LRF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_ShowRequests_LRF.Location = new Point(448, 57);
             dgv_ShowRequests_LRF.Name = "dgv_ShowRequests_LRF";
@@ -183,7 +183,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Linen;
             ClientSize = new Size(822, 486);
             Controls.Add(btn_logout_LF);
             Controls.Add(combo_leaveReason_LRF);

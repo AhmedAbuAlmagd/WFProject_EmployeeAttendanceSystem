@@ -30,7 +30,7 @@ namespace EF_Project.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HRDashboard));
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(HRDashboard));
             btn_myattend_HRF = new Button();
             btn_empattend_HRF = new Button();
             btn_empmanage_HRF = new Button();
@@ -40,7 +40,7 @@ namespace EF_Project.Forms
             btn_leaveRequest_HRD = new Button();
             button1 = new Button();
             pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btn_myattend_HRF
@@ -160,7 +160,7 @@ namespace EF_Project.Forms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Linen;
             ClientSize = new Size(865, 544);
             Controls.Add(pictureBox1);
             Controls.Add(btn_logout_HRDF);
@@ -173,7 +173,7 @@ namespace EF_Project.Forms
             Controls.Add(btn_myattend_HRF);
             Name = "HRDashboard";
             Text = "HRDashboard";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

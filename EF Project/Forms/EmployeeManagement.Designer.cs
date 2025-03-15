@@ -51,7 +51,7 @@
             // 
             // dgv_emp_EMF
             // 
-            dgv_emp_EMF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_emp_EMF.BackgroundColor = Color.Ivory;
             dgv_emp_EMF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_emp_EMF.Location = new Point(12, 216);
             dgv_emp_EMF.Name = "dgv_emp_EMF";
@@ -229,11 +229,11 @@
             btn_logout_SRF.UseVisualStyleBackColor = false;
             btn_logout_SRF.Click += btn_logout_SRF_Click;
             // 
-            // EmployeeManagment
+            // EmployeeManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Linen;
             ClientSize = new Size(865, 550);
             Controls.Add(btn_logout_SRF);
             Controls.Add(btn_back_EMF);
@@ -253,7 +253,7 @@
             Controls.Add(txt_position_EMF);
             Controls.Add(txt_name_EMF);
             Controls.Add(dgv_emp_EMF);
-            Name = "EmployeeManagment";
+            Name = "EmployeeManagement";
             Text = "EmployeeManagment";
             Load += EmployeeManagment_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_emp_EMF).EndInit();

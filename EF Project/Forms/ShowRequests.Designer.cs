@@ -43,7 +43,7 @@
             // 
             // dgv_showrequests_SRF
             // 
-            dgv_showrequests_SRF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_showrequests_SRF.BackgroundColor = Color.Ivory;
             dgv_showrequests_SRF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_showrequests_SRF.Location = new Point(12, 205);
             dgv_showrequests_SRF.Name = "dgv_showrequests_SRF";
@@ -162,7 +162,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Linen;
             ClientSize = new Size(822, 550);
             Controls.Add(label2);
             Controls.Add(label1);

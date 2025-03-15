@@ -54,7 +54,7 @@
             btn_showbydate_EAF.BackColor = Color.FromArgb(53, 122, 189);
             btn_showbydate_EAF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_showbydate_EAF.ForeColor = SystemColors.ControlLightLight;
-            btn_showbydate_EAF.Location = new Point(63, 97);
+            btn_showbydate_EAF.Location = new Point(48, 95);
             btn_showbydate_EAF.Name = "btn_showbydate_EAF";
             btn_showbydate_EAF.Size = new Size(199, 49);
             btn_showbydate_EAF.TabIndex = 7;
@@ -77,7 +77,7 @@
             // 
             // dgv_empattend_EAF
             // 
-            dgv_empattend_EAF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_empattend_EAF.BackgroundColor = Color.Ivory;
             dgv_empattend_EAF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_empattend_EAF.Location = new Point(12, 170);
             dgv_empattend_EAF.Name = "dgv_empattend_EAF";
@@ -118,7 +118,7 @@
             // 
             // btn_showbyuseranddate_EAF
             // 
-            btn_showbyuseranddate_EAF.BackColor = Color.FromArgb(20, 120, 90);
+            btn_showbyuseranddate_EAF.BackColor = Color.DarkSlateBlue;
             btn_showbyuseranddate_EAF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_showbyuseranddate_EAF.ForeColor = SystemColors.ButtonHighlight;
             btn_showbyuseranddate_EAF.Location = new Point(540, 183);
@@ -146,7 +146,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Linen;
             ClientSize = new Size(865, 550);
             Controls.Add(btn_logout_SRF);
             Controls.Add(btn_showbyuseranddate_EAF);

@@ -42,7 +42,7 @@
             // dgv_department
             // 
             dgv_department.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_department.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_department.BackgroundColor = Color.Ivory;
             dgv_department.ColumnHeadersHeight = 22;
             dgv_department.Location = new Point(90, 133);
             dgv_department.Name = "dgv_department";
@@ -137,7 +137,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Linen;
             ClientSize = new Size(865, 550);
             Controls.Add(btn_logout_SRF);
             Controls.Add(btn_back_DF);

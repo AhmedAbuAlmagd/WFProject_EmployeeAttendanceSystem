@@ -70,7 +70,7 @@
             // 
             // dgv_users_UF
             // 
-            dgv_users_UF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_users_UF.BackgroundColor = Color.Ivory;
             dgv_users_UF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_users_UF.Location = new Point(12, 163);
             dgv_users_UF.Name = "dgv_users_UF";
@@ -214,7 +214,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Linen;
             ClientSize = new Size(865, 550);
             Controls.Add(btn_logout_SRF);
             Controls.Add(btn_back_UF);

@@ -42,7 +42,7 @@
             // 
             // dgv_empfrequentabsence_EFAF
             // 
-            dgv_empfrequentabsence_EFAF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_empfrequentabsence_EFAF.BackgroundColor = Color.Ivory;
             dgv_empfrequentabsence_EFAF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_empfrequentabsence_EFAF.Location = new Point(12, 264);
             dgv_empfrequentabsence_EFAF.Name = "dgv_empfrequentabsence_EFAF";
@@ -55,9 +55,9 @@
             btn_showabsenceemployees_EFAF.BackColor = Color.FromArgb(53, 122, 189);
             btn_showabsenceemployees_EFAF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_showabsenceemployees_EFAF.ForeColor = SystemColors.ControlLightLight;
-            btn_showabsenceemployees_EFAF.Location = new Point(169, 160);
+            btn_showabsenceemployees_EFAF.Location = new Point(21, 164);
             btn_showabsenceemployees_EFAF.Name = "btn_showabsenceemployees_EFAF";
-            btn_showabsenceemployees_EFAF.Size = new Size(311, 75);
+            btn_showabsenceemployees_EFAF.Size = new Size(421, 75);
             btn_showabsenceemployees_EFAF.TabIndex = 1;
             btn_showabsenceemployees_EFAF.Text = "Show Employees with Frequent absence";
             btn_showabsenceemployees_EFAF.UseVisualStyleBackColor = false;
@@ -99,7 +99,7 @@
             // 
             // btn_exportpdf_EFAF
             // 
-            btn_exportpdf_EFAF.BackColor = Color.FromArgb(160, 120, 70);
+            btn_exportpdf_EFAF.BackColor = Color.DarkSlateBlue;
             btn_exportpdf_EFAF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_exportpdf_EFAF.ForeColor = SystemColors.ControlLightLight;
             btn_exportpdf_EFAF.Location = new Point(607, 33);
@@ -139,7 +139,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Linen;
             ClientSize = new Size(865, 550);
             Controls.Add(btn_logout_SRF);
             Controls.Add(btn_back_EFAF);

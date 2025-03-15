@@ -45,7 +45,7 @@
             // 
             // dgv_showlogs_LF
             // 
-            dgv_showlogs_LF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_showlogs_LF.BackgroundColor = Color.Ivory;
             dgv_showlogs_LF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_showlogs_LF.Location = new Point(12, 207);
             dgv_showlogs_LF.Name = "dgv_showlogs_LF";
@@ -58,7 +58,7 @@
             btn_getlogs_LF.BackColor = Color.FromArgb(53, 122, 189);
             btn_getlogs_LF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_getlogs_LF.ForeColor = SystemColors.ButtonHighlight;
-            btn_getlogs_LF.Location = new Point(617, 248);
+            btn_getlogs_LF.Location = new Point(617, 260);
             btn_getlogs_LF.Name = "btn_getlogs_LF";
             btn_getlogs_LF.Size = new Size(142, 54);
             btn_getlogs_LF.TabIndex = 1;
@@ -68,7 +68,7 @@
             // 
             // btn_add_LF
             // 
-            btn_add_LF.BackColor = Color.FromArgb(20, 120, 90);
+            btn_add_LF.BackColor = Color.Teal;
             btn_add_LF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_add_LF.ForeColor = SystemColors.ButtonHighlight;
             btn_add_LF.Location = new Point(617, 366);
@@ -81,7 +81,7 @@
             // 
             // btn_exportpdf_LF
             // 
-            btn_exportpdf_LF.BackColor = Color.FromArgb(160, 120, 70);
+            btn_exportpdf_LF.BackColor = Color.DarkSlateBlue;
             btn_exportpdf_LF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_exportpdf_LF.ForeColor = SystemColors.HighlightText;
             btn_exportpdf_LF.Location = new Point(568, 27);
@@ -175,7 +175,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Ivory;
+            BackColor = Color.Linen;
             ClientSize = new Size(822, 550);
             Controls.Add(btn_logout_LF);
             Controls.Add(btn_back_LF);
