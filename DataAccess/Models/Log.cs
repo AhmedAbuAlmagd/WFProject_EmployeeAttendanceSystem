@@ -16,7 +16,11 @@ namespace EmployeeAttendanceSystem.DataAccess.Models
         leaveRequest, 
     }
    
-  
+  public enum Attendance_Status
+    {
+        present 
+       , Absent
+    }
     public class Log
     {
         [Key]
@@ -24,7 +28,7 @@ namespace EmployeeAttendanceSystem.DataAccess.Models
         [Column(TypeName = "nvarchar(20)")]
         public Action action { get; set; }  
         public DateTime actionTime {  get; set; }
-        public AttendanceStatus? attendanceStatus { get; set; }
+        public Attendance_Status? attendance_Status { get; set; }
         [ForeignKey("Employee")]
         public int empoloyeeId { get; set; }
         public virtual Employee Employee { get; set; }
