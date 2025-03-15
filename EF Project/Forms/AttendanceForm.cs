@@ -56,7 +56,7 @@ namespace EF_Project.Forms
                 };
 
                 logsServices.Add(log);
-                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employee_id, DateOnly.FromDateTime(DateTime.Now));
+                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDateOnly(employee_id, DateOnly.FromDateTime(DateTime.Now));
                 var attendance = attendanceList.FirstOrDefault();
 
                 if (attendance != null && attendance.IsLate)
