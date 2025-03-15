@@ -42,6 +42,7 @@
             combo_employee_UF = new ComboBox();
             label4 = new Label();
             btn_back_UF = new Button();
+            btn_logout_SRF = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_users_UF).BeginInit();
             SuspendLayout();
             // 
@@ -74,7 +75,7 @@
             dgv_users_UF.Location = new Point(12, 163);
             dgv_users_UF.Name = "dgv_users_UF";
             dgv_users_UF.RowHeadersWidth = 51;
-            dgv_users_UF.Size = new Size(554, 376);
+            dgv_users_UF.Size = new Size(575, 376);
             dgv_users_UF.TabIndex = 2;
             dgv_users_UF.RowHeaderMouseDoubleClick += dgv_users_UF_RowHeaderMouseDoubleClick;
             // 
@@ -106,7 +107,7 @@
             btn_addUser_UF.BackColor = Color.FromArgb(53, 122, 189);
             btn_addUser_UF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_addUser_UF.ForeColor = Color.White;
-            btn_addUser_UF.Location = new Point(644, 177);
+            btn_addUser_UF.Location = new Point(658, 177);
             btn_addUser_UF.Name = "btn_addUser_UF";
             btn_addUser_UF.Size = new Size(142, 54);
             btn_addUser_UF.TabIndex = 6;
@@ -119,7 +120,7 @@
             btn_updateUser_UF.BackColor = Color.FromArgb(245, 166, 35);
             btn_updateUser_UF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_updateUser_UF.ForeColor = SystemColors.ButtonHighlight;
-            btn_updateUser_UF.Location = new Point(644, 274);
+            btn_updateUser_UF.Location = new Point(658, 274);
             btn_updateUser_UF.Name = "btn_updateUser_UF";
             btn_updateUser_UF.Size = new Size(142, 54);
             btn_updateUser_UF.TabIndex = 7;
@@ -129,10 +130,10 @@
             // 
             // btn_deleteUser_UF
             // 
-            btn_deleteUser_UF.BackColor = Color.FromArgb(208, 2, 27);
+            btn_deleteUser_UF.BackColor = Color.FromArgb(208, 40, 80);
             btn_deleteUser_UF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_deleteUser_UF.ForeColor = Color.White;
-            btn_deleteUser_UF.Location = new Point(644, 374);
+            btn_deleteUser_UF.Location = new Point(658, 374);
             btn_deleteUser_UF.Name = "btn_deleteUser_UF";
             btn_deleteUser_UF.Size = new Size(142, 54);
             btn_deleteUser_UF.TabIndex = 8;
@@ -188,7 +189,7 @@
             btn_back_UF.BackColor = Color.FromArgb(75, 75, 75);
             btn_back_UF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_back_UF.ForeColor = Color.White;
-            btn_back_UF.Location = new Point(737, 491);
+            btn_back_UF.Location = new Point(605, 494);
             btn_back_UF.Name = "btn_back_UF";
             btn_back_UF.Size = new Size(116, 44);
             btn_back_UF.TabIndex = 41;
@@ -196,12 +197,26 @@
             btn_back_UF.UseVisualStyleBackColor = false;
             btn_back_UF.Click += btn_back_UF_Click;
             // 
+            // btn_logout_SRF
+            // 
+            btn_logout_SRF.BackColor = Color.FromArgb(75, 75, 75);
+            btn_logout_SRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            btn_logout_SRF.ForeColor = SystemColors.Control;
+            btn_logout_SRF.Location = new Point(737, 495);
+            btn_logout_SRF.Name = "btn_logout_SRF";
+            btn_logout_SRF.Size = new Size(116, 44);
+            btn_logout_SRF.TabIndex = 42;
+            btn_logout_SRF.Text = "Log Out";
+            btn_logout_SRF.UseVisualStyleBackColor = false;
+            btn_logout_SRF.Click += btn_logout_SRF_Click;
+            // 
             // UsersForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(225, 223, 186);
             ClientSize = new Size(865, 550);
+            Controls.Add(btn_logout_SRF);
             Controls.Add(btn_back_UF);
             Controls.Add(combo_employee_UF);
             Controls.Add(label4);
@@ -240,5 +255,6 @@
         private ComboBox combo_employee_UF;
         private Label label4;
         private Button btn_back_UF;
+        private Button btn_logout_SRF;
     }
 }

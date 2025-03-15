@@ -30,14 +30,14 @@ namespace EF_Project.Forms
         }
         private void Design_Dgv()
         {
-            dgv_showrequests_SRF.BackgroundColor = Color.FromArgb(240, 240, 240);
+            dgv_showrequests_SRF.BackgroundColor = Color.FromArgb(225, 223, 186);
             dgv_showrequests_SRF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_showrequests_SRF.DefaultCellStyle.ForeColor = Color.Black;
             dgv_showrequests_SRF.GridColor = Color.Gray;
 
             dgv_showrequests_SRF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
             dgv_showrequests_SRF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgv_showrequests_SRF.EnableHeadersVisualStyles = false;
+            dgv_showrequests_SRF.EnableHeadersVisualStyles = false; 
 
             dgv_showrequests_SRF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
             dgv_showrequests_SRF.DefaultCellStyle.SelectionForeColor = Color.White;
@@ -198,8 +198,13 @@ namespace EF_Project.Forms
 
         private void btn_logout_SRF_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new LoginForm().Show();
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new LoginForm().Show();
+            }
         }
 
 

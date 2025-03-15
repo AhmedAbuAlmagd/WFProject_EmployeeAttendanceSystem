@@ -33,7 +33,24 @@ namespace EF_Project.Forms
             this.prevForm = prevForm;
             this.employee_id = employee_id;
             LoadEmployees();
+            Design_Dgv();
         }
+
+        private void Design_Dgv()
+        {
+            dgv_empattend_EAF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_empattend_EAF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+            dgv_empattend_EAF.DefaultCellStyle.ForeColor = Color.Black;
+            dgv_empattend_EAF.GridColor = Color.Gray;
+
+            dgv_empattend_EAF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
+            dgv_empattend_EAF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv_empattend_EAF.EnableHeadersVisualStyles = false;
+
+            dgv_empattend_EAF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
+            dgv_empattend_EAF.DefaultCellStyle.SelectionForeColor = Color.White;
+        }
+
         private void LoadEmployees()
         {
             List<Employee> employees = new List<Employee>();
@@ -45,16 +62,6 @@ namespace EF_Project.Forms
             cb_showbyuser_EAF.DataSource = employees;
             cb_showbyuser_EAF.DisplayMember = "name";
             cb_showbyuser_EAF.ValueMember = "id";
-        }
-        private void LoadDates()
-        {
-            var dates = attendanceServices.GetAllDates();
-            if(dates == null || dates.Count == 0)
-            {
-                MessageBox.Show("No Dates Recorded", "warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            //cb_showbydate_EAF.DataSource = dates;
         }
 
 
@@ -139,7 +146,7 @@ namespace EF_Project.Forms
 
         private void dgv_empattend_EAF_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int employeeId = (int)dgv_empattend_EAF.SelectedRows[0].Cells["Employee_id"].Value ;
+            int employeeId = (int)dgv_empattend_EAF.SelectedRows[0].Cells["Employee_id"].Value;
             DateOnly selectedDate = (DateOnly)dgv_empattend_EAF.SelectedRows[0].Cells["Date"].Value;
             var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDate(employeeId, selectedDate);
 
@@ -147,6 +154,17 @@ namespace EF_Project.Forms
             Bitmap qrCode = GenerateQrCode(qrData);
             pbQrCode.Image = qrCode;
 
+        }
+
+        private void btn_logout_SRF_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new LoginForm().Show();
+            }
         }
     }
 }

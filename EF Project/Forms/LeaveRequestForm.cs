@@ -30,13 +30,16 @@ namespace EF_Project.Forms
             context = new AttendanceContext();
             leaveRequestServices = new LeaveRequestServices(context);
             logsServices = new LogsServices(context);
+            Design_Dgv();
         }
+
 
         private void btn_back_LRF_Click(object sender, EventArgs e)
         {
             this.Close();
             previousForm.Show();
         }
+
 
         private void btn_SendRequest_LRF_Click(object sender, EventArgs e)
         {
@@ -50,7 +53,7 @@ namespace EF_Project.Forms
             leaveRequest.LeaveEndTime = requestEndTime_LRF.Value.Date;
             leaveRequest.LeaveType = (LeaveType)Enum.Parse(typeof(LeaveType), combo_leaveReason_LRF.Text, true);
             leaveRequest.EmployeeId = employee_id;
-         
+
 
             leaveRequestServices.Add(leaveRequest);
 
@@ -110,7 +113,35 @@ namespace EF_Project.Forms
 
         private void LeaveRequestForm_Load(object sender, EventArgs e)
         {
-            combo_leaveReason_LRF.DataSource = Enum.GetValues(typeof(LeaveType));   
+            combo_leaveReason_LRF.DataSource = Enum.GetValues(typeof(LeaveType));
+        }
+
+        private void btn_logout_LF_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new LoginForm().Show();
+            }
+        }
+
+      
+
+        private void Design_Dgv()
+        {
+            dgv_ShowRequests_LRF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_ShowRequests_LRF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+            dgv_ShowRequests_LRF.DefaultCellStyle.ForeColor = Color.Black;
+            dgv_ShowRequests_LRF.GridColor = Color.Gray;
+
+            dgv_ShowRequests_LRF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
+            dgv_ShowRequests_LRF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv_ShowRequests_LRF.EnableHeadersVisualStyles = false;
+
+            dgv_ShowRequests_LRF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
+            dgv_ShowRequests_LRF.DefaultCellStyle.SelectionForeColor = Color.White;
         }
     }
 }

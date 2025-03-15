@@ -39,6 +39,7 @@ namespace EF_Project.Forms
             cb_action_LF.DataSource = Enum.GetValues(typeof(EmployeeAttendanceSystem.DataAccess.Models.Action));
             cb_attendstatus_LF.DataSource = Enum.GetValues(typeof(Attendance_Status));
             this.prevForm = prevForm;
+            Design_Dgv();
         }
 
         private void btn_getlogs_LF_Click(object sender, EventArgs e)
@@ -55,8 +56,6 @@ namespace EF_Project.Forms
                     LeaveTypes = log.Employee?.LeaveRequests?.Any() == true
                     ? string.Join(", ", log.Employee.LeaveRequests.Select(lr => lr.LeaveType.ToString()))
                         : "No Requests"
-                    //EmployeeLeaveRequest = (", ",log.Employee?.LeaveRequests.Select(lr => lr.LeaveType)?? new List<string>())
-
                 }).ToList();
 
 
@@ -147,9 +146,28 @@ namespace EF_Project.Forms
 
         private void btn_logout_LF_Click(object sender, EventArgs e)
         {
-            this.Close();
-          new LoginForm().Close();
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new LoginForm().Show();
+            }
+        }
+
+        private void Design_Dgv()
+        {
+            dgv_showlogs_LF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_showlogs_LF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+            dgv_showlogs_LF.DefaultCellStyle.ForeColor = Color.Black;
+            dgv_showlogs_LF.GridColor = Color.Gray;
+
+            dgv_showlogs_LF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
+            dgv_showlogs_LF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv_showlogs_LF.EnableHeadersVisualStyles = false;
+
+            dgv_showlogs_LF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
+            dgv_showlogs_LF.DefaultCellStyle.SelectionForeColor = Color.White;
         }
     }
 }

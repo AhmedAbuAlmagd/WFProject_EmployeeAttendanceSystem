@@ -122,16 +122,22 @@ namespace EF_Project.Forms
 
         private void btn_logout_AF_Click(object sender, EventArgs e)
         {
-            if (employeeServices.GetById(employee_id).User.role.ToString() == "Employee")
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
             {
-                this.Close();
-                new LoginForm().Show();
+                if (employeeServices.GetById(employee_id).User.role.ToString() == "Employee")
+                {
+                    this.Close();
+                    new LoginForm().Show();
+                }
+                else
+                {
+                    this.Close();
+                    prevForm.Show();
+                }
             }
-            else
-            {
-                this.Close();
-                prevForm.Show();
-            }
+           
         }
 
         private void AttendanceForm_Load(object sender, EventArgs e)
