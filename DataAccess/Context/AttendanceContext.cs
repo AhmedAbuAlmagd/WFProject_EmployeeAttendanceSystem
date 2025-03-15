@@ -23,26 +23,46 @@ namespace EmployeeAttendanceSystem.DataAccess.Context
             modelBuilder.Entity<Attendance>()
                 .Property(a => a.IsLate)
                 .HasConversion(
-                   v => v ? "t" : "f", // Convert bool to string
-                   v => v == "t" // Convert string to bool
+                   v => v ? "t" : "f", 
+                   v => v == "t" 
                 );
 
             modelBuilder.Entity<Attendance>()
                 .Property(a => a.IsEarlyDeparture)
                 .HasConversion(
-                    v => v ? "t" : "f", // Convert bool to string
-                    v => v == "t" // Convert string to bool
+                    v => v ? "t" : "f", 
+                    v => v == "t" 
                 );
 
      
             modelBuilder.Entity<LeaveRequest>()
                 .Property(r => r.LeaveType)
                 .HasConversion(
-                    v => v.ToString().Replace("_", " "), // Enum to string
-                    v => (LeaveType)Enum.Parse(typeof(LeaveType), v.Replace(" ", "_")) // String to enum
+                    v => v.ToString().Replace("_", " "), 
+                    v => (LeaveType)Enum.Parse(typeof(LeaveType), v.Replace(" ", "_")) 
                 );
-        
+
+            modelBuilder.Entity<User>().HasData(
+               new User
+               {
+                   id = 1,
+                   userName = "admin",
+                   password = "Admin@123", 
+                   role = role.Admin,
+                   employeeId = null
+               },
+               new User
+               {
+                   id = 2,
+                   userName = "hrmanager",
+                   password = "HR@123", 
+                   role = role.HR,
+                   employeeId = null
+               }
+           );
+            base.OnModelCreating(modelBuilder);
         }
+
 
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
