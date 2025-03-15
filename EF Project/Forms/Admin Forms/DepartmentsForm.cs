@@ -26,7 +26,7 @@ namespace EF_Project.Forms
         }
         private void Design_Dgv()
         {
-            dgv_department.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_department.BackgroundColor = Color.Ivory;
             dgv_department.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_department.DefaultCellStyle.ForeColor = Color.Black;
             dgv_department.GridColor = Color.Gray;

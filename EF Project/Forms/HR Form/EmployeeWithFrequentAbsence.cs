@@ -37,7 +37,7 @@ namespace EF_Project.Forms
         }
         private void Design_Dgv()
         {
-            dgv_empfrequentabsence_EFAF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_empfrequentabsence_EFAF.BackgroundColor = Color.Ivory;
             dgv_empfrequentabsence_EFAF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_empfrequentabsence_EFAF.DefaultCellStyle.ForeColor = Color.Black;
             dgv_empfrequentabsence_EFAF.GridColor = Color.Gray;

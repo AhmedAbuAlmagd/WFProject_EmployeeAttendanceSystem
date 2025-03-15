@@ -45,7 +45,7 @@
             // 
             // dgv_showreport_SRF
             // 
-            dgv_showreport_SRF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_showreport_SRF.BackgroundColor = Color.Ivory;
             dgv_showreport_SRF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_showreport_SRF.Location = new Point(27, 291);
             dgv_showreport_SRF.Name = "dgv_showreport_SRF";
@@ -164,7 +164,7 @@
             // 
             // btn_exportPDF_SRF
             // 
-            btn_exportPDF_SRF.BackColor = Color.FromArgb(160, 120, 70);
+            btn_exportPDF_SRF.BackColor = Color.DarkSlateBlue;
             btn_exportPDF_SRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_exportPDF_SRF.ForeColor = SystemColors.ButtonHighlight;
             btn_exportPDF_SRF.Location = new Point(545, 23);
@@ -179,7 +179,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Linen;
             ClientSize = new Size(822, 550);
             Controls.Add(btn_exportPDF_SRF);
             Controls.Add(btn_logout_SRF);

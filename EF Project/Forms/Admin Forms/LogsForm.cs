@@ -157,7 +157,7 @@ namespace EF_Project.Forms
 
         private void Design_Dgv()
         {
-            dgv_showlogs_LF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_showlogs_LF.BackgroundColor = Color.Ivory;
             dgv_showlogs_LF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_showlogs_LF.DefaultCellStyle.ForeColor = Color.Black;
             dgv_showlogs_LF.GridColor = Color.Gray;

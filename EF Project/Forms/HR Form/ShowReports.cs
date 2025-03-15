@@ -240,7 +240,7 @@ namespace EF_Project.Forms
 
         private void Design_Dgv()
         {
-            dgv_showreport_SRF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_showreport_SRF.BackgroundColor = Color.Ivory;
             dgv_showreport_SRF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_showreport_SRF.DefaultCellStyle.ForeColor = Color.Black;
             dgv_showreport_SRF.GridColor = Color.Gray;

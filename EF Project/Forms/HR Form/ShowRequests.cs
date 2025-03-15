@@ -30,7 +30,7 @@ namespace EF_Project.Forms
         }
         private void Design_Dgv()
         {
-            dgv_showrequests_SRF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_showrequests_SRF.BackgroundColor = Color.Ivory;
             dgv_showrequests_SRF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_showrequests_SRF.DefaultCellStyle.ForeColor = Color.Black;
             dgv_showrequests_SRF.GridColor = Color.Gray;

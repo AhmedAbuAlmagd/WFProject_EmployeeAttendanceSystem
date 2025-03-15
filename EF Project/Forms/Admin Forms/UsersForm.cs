@@ -25,7 +25,7 @@ namespace EF_Project
 
         private void Design_Dgv()
         {
-            dgv_users_UF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_users_UF.BackgroundColor = Color.Ivory;
             dgv_users_UF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_users_UF.DefaultCellStyle.ForeColor = Color.Black;
             dgv_users_UF.GridColor = Color.Gray;

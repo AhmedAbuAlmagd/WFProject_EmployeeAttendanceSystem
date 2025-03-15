@@ -129,7 +129,7 @@ namespace EF_Project.Forms
 
         private void Design_Dgv()
         {
-            dgv_ShowRequests_LRF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_ShowRequests_LRF.BackgroundColor = Color.Ivory;
             dgv_ShowRequests_LRF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_ShowRequests_LRF.DefaultCellStyle.ForeColor = Color.Black;
             dgv_ShowRequests_LRF.GridColor = Color.Gray;

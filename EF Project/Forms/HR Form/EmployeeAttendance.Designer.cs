@@ -54,7 +54,7 @@
             btn_showbydate_EAF.BackColor = Color.FromArgb(53, 122, 189);
             btn_showbydate_EAF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_showbydate_EAF.ForeColor = SystemColors.ControlLightLight;
-            btn_showbydate_EAF.Location = new Point(48, 95);
+            btn_showbydate_EAF.Location = new Point(63, 95);
             btn_showbydate_EAF.Name = "btn_showbydate_EAF";
             btn_showbydate_EAF.Size = new Size(199, 49);
             btn_showbydate_EAF.TabIndex = 7;
@@ -102,7 +102,7 @@
             // date_EAF
             // 
             date_EAF.Format = DateTimePickerFormat.Short;
-            date_EAF.Location = new Point(686, 152);
+            date_EAF.Location = new Point(303, 107);
             date_EAF.Name = "date_EAF";
             date_EAF.Size = new Size(151, 27);
             date_EAF.TabIndex = 11;

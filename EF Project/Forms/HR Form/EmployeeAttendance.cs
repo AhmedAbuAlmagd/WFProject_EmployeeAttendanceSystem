@@ -38,7 +38,7 @@ namespace EF_Project.Forms
 
         private void Design_Dgv()
         {
-            dgv_empattend_EAF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_empattend_EAF.BackgroundColor = Color.Ivory;
             dgv_empattend_EAF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_empattend_EAF.DefaultCellStyle.ForeColor = Color.Black;
             dgv_empattend_EAF.GridColor = Color.Gray;

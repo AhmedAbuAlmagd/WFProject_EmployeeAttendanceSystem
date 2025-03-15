@@ -33,7 +33,7 @@ namespace EF_Project.Forms
         }
         private void Design_Dgv()
         {
-            dgv_emp_EMF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_emp_EMF.BackgroundColor = Color.Ivory;
             dgv_emp_EMF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
             dgv_emp_EMF.DefaultCellStyle.ForeColor = Color.Black;
             dgv_emp_EMF.GridColor = Color.Gray;

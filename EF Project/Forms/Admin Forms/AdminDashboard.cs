@@ -19,7 +19,7 @@ namespace EF_Project.Forms
             this.admin_id = admin_id;
         }
 
-       
+
 
         private void btn_deptsManagement_HRF_Click(object sender, EventArgs e)
         {
@@ -75,7 +75,12 @@ namespace EF_Project.Forms
         private void btn_showlogs_ADF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new  LogsForm().Show();
+            new LogsForm().Show();
+        }
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
