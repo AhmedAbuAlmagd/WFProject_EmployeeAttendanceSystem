@@ -1,5 +1,6 @@
 ﻿using EmployeeAttendanceSystem.DataAccess.Context;
 using EmployeeAttendanceSystem.DataAccess.Models;
+using EmployeeAttendanceSystem.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -216,6 +217,12 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
                 .Where(a => a.Date.Year == year && a.Date.Month == month && a.Employee_id == empId)
                 .Include(a => a.Employee)
                 .ToList();
+        }
+        public List<Employee> GetFrequentAbsentees(DateOnly startDate, DateOnly endDate, int absenceNo)
+        {
+            var absentees = context.Employees.Where(e => e.Attendances.Count (a => a.Date >= startDate && a.Date <= endDate && a.attendanceStatus == AttendanceStatus.Absent)
+             >= absenceNo).ToList();
+                 return absentees;
         }
     }
 }

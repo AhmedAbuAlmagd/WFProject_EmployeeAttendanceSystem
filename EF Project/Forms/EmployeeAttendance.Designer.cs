@@ -102,7 +102,7 @@
             // date_EAF
             // 
             date_EAF.Format = DateTimePickerFormat.Short;
-            date_EAF.Location = new Point(303, 109);
+            date_EAF.Location = new Point(686, 152);
             date_EAF.Name = "date_EAF";
             date_EAF.Size = new Size(151, 27);
             date_EAF.TabIndex = 11;

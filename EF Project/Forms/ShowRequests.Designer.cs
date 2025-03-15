@@ -94,7 +94,7 @@
             // cb_showbyemp_SRF
             // 
             cb_showbyemp_SRF.FormattingEnabled = true;
-            cb_showbyemp_SRF.Location = new Point(310, 131);
+            cb_showbyemp_SRF.Location = new Point(291, 135);
             cb_showbyemp_SRF.Name = "cb_showbyemp_SRF";
             cb_showbyemp_SRF.Size = new Size(173, 28);
             cb_showbyemp_SRF.TabIndex = 4;
@@ -131,7 +131,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            label2.Location = new Point(83, 131);
+            label2.Location = new Point(51, 131);
             label2.Name = "label2";
             label2.Size = new Size(189, 28);
             label2.TabIndex = 8;
