@@ -1,4 +1,6 @@
-﻿namespace EF_Project.Forms
+﻿using System.ComponentModel;
+
+namespace EF_Project.Forms
 {
     partial class HRDashboard
     {
@@ -137,5 +139,6 @@
         private Button btn_showreport_HRF;
         private Button btn_logout_HRDF;
         private Button btn_leaveRequest_HRD;
+        private ISupportInitialize pictureBox1;
     }
 }
