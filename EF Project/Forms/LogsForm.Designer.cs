@@ -175,7 +175,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Ivory;
             ClientSize = new Size(822, 550);
             Controls.Add(btn_logout_LF);
             Controls.Add(btn_back_LF);

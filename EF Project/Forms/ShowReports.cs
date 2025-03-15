@@ -88,9 +88,10 @@ namespace EF_Project.Forms
                 return;
             }
             int empId = (int)cb_showemp_SRF.SelectedValue;
-            DateTime startDate = DateTime.Now.AddDays(-7);
+            DateOnly startDate = DateOnly.FromDateTime(DateTime.Now.AddDays(-7));
+            DateOnly endDate = DateOnly.FromDateTime(DateTime.Now);
 
-            var weeklyReport = attendanceServices.GetAttendanceByEmpIdAndDate(empId, DateOnly.FromDateTime(startDate))
+            var weeklyReport = attendanceServices.GetAttendanceByEmpIdAndDate(empId,startDate,endDate)
        .Select(a => new
        {
            EmployeeName = a.Employee != null ? a.Employee.name : "N/A",
@@ -102,8 +103,17 @@ namespace EF_Project.Forms
            a.IsLate,
            a.IsEarlyDeparture
        }).ToList();
+            if (weeklyReport.Count == 0)
+            {
+                MessageBox.Show("No attendance records found for this employee in the past week.",
+                                "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dgv_showreport_SRF.DataSource = weeklyReport;
+            }
 
-            dgv_showreport_SRF.DataSource = weeklyReport;
+            // dgv_showreport_SRF.DataSource = weeklyReport;
 
 
         }
@@ -126,7 +136,7 @@ namespace EF_Project.Forms
             int month = (int)cb_month_SRF.SelectedItem;
 
 
-            var monthlyReport = attendanceServices.GetMonthlyAttendance(empId, year, month)
+            var monthlyReport = attendanceServices.GetMonthlyAttendance(year,month,empId)
         .Select(a => new
         {
             EmployeeName = a.Employee != null ? a.Employee.name : "N/A",

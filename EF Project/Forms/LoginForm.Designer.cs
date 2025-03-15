@@ -74,9 +74,9 @@
             btn_login_LF.BackColor = Color.SaddleBrown;
             btn_login_LF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_login_LF.ForeColor = Color.Transparent;
-            btn_login_LF.Location = new Point(558, 335);
+            btn_login_LF.Location = new Point(570, 339);
             btn_login_LF.Name = "btn_login_LF";
-            btn_login_LF.Size = new Size(155, 48);
+            btn_login_LF.Size = new Size(155, 54);
             btn_login_LF.TabIndex = 41;
             btn_login_LF.Text = "Login";
             btn_login_LF.UseVisualStyleBackColor = false;
@@ -115,7 +115,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(225, 223, 186);
+            BackColor = Color.Ivory;
             ClientSize = new Size(832, 503);
             Controls.Add(pictureBox1);
             Controls.Add(check_viewPass_UF);

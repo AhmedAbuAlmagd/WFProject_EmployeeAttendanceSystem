@@ -48,11 +48,11 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
                 .ToList();
         }
 
-        public List<Attendance> GetAttendanceByEmpIdAndDate(int empId, DateOnly date)
+        public List<Attendance> GetAttendanceByEmpIdAndDate(int empId, DateOnly startDate , DateOnly endDate)
         {
 
             return context.Attendances
-                .Where(e => e.Employee_id == empId && e.Date == date)
+                .Where(e => e.Employee_id == empId && e.Date >= startDate && e.Date <= endDate)
                 .Include(e => e.Employee)
                 .ToList();
         }
