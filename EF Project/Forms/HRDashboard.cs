@@ -19,6 +19,10 @@ namespace EF_Project.Forms
             this.hr_id = hr_id;
         }
 
+        public HRDashboard()
+        {
+        }
+
         private void btn_myattend_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -28,13 +32,13 @@ namespace EF_Project.Forms
         private void btn_empmanage_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new EmployeeManagment(hr_id,this).Show();
+            new EmployeeManagment(hr_id, this).Show();
         }
 
         private void btn_showrequest_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new ShowRequests(hr_id,this).Show();
+            new ShowRequests(hr_id, this).Show();
         }
 
         private void btn_showreport_HRF_Click(object sender, EventArgs e)
@@ -46,7 +50,7 @@ namespace EF_Project.Forms
         private void btn_empattend_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new EmployeeAttendance(hr_id,this).Show();
+            new EmployeeAttendance(hr_id, this).Show();
         }
 
         private void btn_logout_HRDF_Click(object sender, EventArgs e)
@@ -59,6 +63,13 @@ namespace EF_Project.Forms
         {
             this.Hide();
             new LeaveRequestForm(hr_id, this).Show();
+        }
+
+        private void btn_empabsence_HRDF_Click(object sender, EventArgs e)
+        {
+            EmployeeWithFrequentAbsence employeeWithFrequentAbsence = new EmployeeWithFrequentAbsence();
+            employeeWithFrequentAbsence.Show();
+            this.Hide();
         }
     }
 }

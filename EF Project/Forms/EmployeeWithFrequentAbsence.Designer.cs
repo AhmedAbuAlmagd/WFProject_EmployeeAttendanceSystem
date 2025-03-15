@@ -1,0 +1,144 @@
+﻿namespace EF_Project.Forms
+{
+    partial class EmployeeWithFrequentAbsence
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            dgv_empfrequentabsence_EFAF = new DataGridView();
+            btn_showabsenceemployees_EFAF = new Button();
+            lbl_stdate_EFAF = new Label();
+            lbl_enddate_EFAF = new Label();
+            dtp_startDate_EFA = new DateTimePicker();
+            dtp_endDate_EFAF = new DateTimePicker();
+            btn_exportpdf_EFAF = new Button();
+            btn_back_EFAF = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgv_empfrequentabsence_EFAF).BeginInit();
+            SuspendLayout();
+            // 
+            // dgv_empfrequentabsence_EFAF
+            // 
+            dgv_empfrequentabsence_EFAF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_empfrequentabsence_EFAF.Location = new Point(12, 265);
+            dgv_empfrequentabsence_EFAF.Name = "dgv_empfrequentabsence_EFAF";
+            dgv_empfrequentabsence_EFAF.RowHeadersWidth = 51;
+            dgv_empfrequentabsence_EFAF.Size = new Size(776, 205);
+            dgv_empfrequentabsence_EFAF.TabIndex = 0;
+            // 
+            // btn_showabsenceemployees_EFAF
+            // 
+            btn_showabsenceemployees_EFAF.Location = new Point(12, 179);
+            btn_showabsenceemployees_EFAF.Name = "btn_showabsenceemployees_EFAF";
+            btn_showabsenceemployees_EFAF.Size = new Size(323, 63);
+            btn_showabsenceemployees_EFAF.TabIndex = 1;
+            btn_showabsenceemployees_EFAF.Text = "Show Employees with Frequent absence";
+            btn_showabsenceemployees_EFAF.UseVisualStyleBackColor = true;
+            btn_showabsenceemployees_EFAF.Click += btn_showabsenceemployees_EFAF_Click;
+            // 
+            // lbl_stdate_EFAF
+            // 
+            lbl_stdate_EFAF.AutoSize = true;
+            lbl_stdate_EFAF.Location = new Point(21, 36);
+            lbl_stdate_EFAF.Name = "lbl_stdate_EFAF";
+            lbl_stdate_EFAF.Size = new Size(76, 20);
+            lbl_stdate_EFAF.TabIndex = 2;
+            lbl_stdate_EFAF.Text = "Start Date";
+            // 
+            // lbl_enddate_EFAF
+            // 
+            lbl_enddate_EFAF.AutoSize = true;
+            lbl_enddate_EFAF.Location = new Point(27, 105);
+            lbl_enddate_EFAF.Name = "lbl_enddate_EFAF";
+            lbl_enddate_EFAF.Size = new Size(70, 20);
+            lbl_enddate_EFAF.TabIndex = 3;
+            lbl_enddate_EFAF.Text = "End Date";
+            // 
+            // dtp_startDate_EFA
+            // 
+            dtp_startDate_EFA.Location = new Point(130, 36);
+            dtp_startDate_EFA.Name = "dtp_startDate_EFA";
+            dtp_startDate_EFA.Size = new Size(250, 27);
+            dtp_startDate_EFA.TabIndex = 4;
+            // 
+            // dtp_endDate_EFAF
+            // 
+            dtp_endDate_EFAF.Location = new Point(130, 100);
+            dtp_endDate_EFAF.Name = "dtp_endDate_EFAF";
+            dtp_endDate_EFAF.Size = new Size(250, 27);
+            dtp_endDate_EFAF.TabIndex = 5;
+            // 
+            // btn_exportpdf_EFAF
+            // 
+            btn_exportpdf_EFAF.Location = new Point(548, 179);
+            btn_exportpdf_EFAF.Name = "btn_exportpdf_EFAF";
+            btn_exportpdf_EFAF.Size = new Size(199, 63);
+            btn_exportpdf_EFAF.TabIndex = 6;
+            btn_exportpdf_EFAF.Text = "Export To PDF";
+            btn_exportpdf_EFAF.UseVisualStyleBackColor = true;
+            btn_exportpdf_EFAF.Click += btn_exportpdf_EFAF_Click;
+            // 
+            // btn_back_EFAF
+            // 
+            btn_back_EFAF.Location = new Point(27, 491);
+            btn_back_EFAF.Name = "btn_back_EFAF";
+            btn_back_EFAF.Size = new Size(113, 48);
+            btn_back_EFAF.TabIndex = 7;
+            btn_back_EFAF.Text = "Back";
+            btn_back_EFAF.UseVisualStyleBackColor = true;
+            btn_back_EFAF.Click += btn_back_EFAF_Click;
+            // 
+            // EmployeeWithFrequentAbsence
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 543);
+            Controls.Add(btn_back_EFAF);
+            Controls.Add(btn_exportpdf_EFAF);
+            Controls.Add(dtp_endDate_EFAF);
+            Controls.Add(dtp_startDate_EFA);
+            Controls.Add(lbl_enddate_EFAF);
+            Controls.Add(lbl_stdate_EFAF);
+            Controls.Add(btn_showabsenceemployees_EFAF);
+            Controls.Add(dgv_empfrequentabsence_EFAF);
+            Name = "EmployeeWithFrequentAbsence";
+            Text = "EmployeeWithFrequentAbsence";
+            ((System.ComponentModel.ISupportInitialize)dgv_empfrequentabsence_EFAF).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private DataGridView dgv_empfrequentabsence_EFAF;
+        private Button btn_showabsenceemployees_EFAF;
+        private Label lbl_stdate_EFAF;
+        private Label lbl_enddate_EFAF;
+        private DateTimePicker dtp_startDate_EFA;
+        private DateTimePicker dtp_endDate_EFAF;
+        private Button btn_exportpdf_EFAF;
+        private Button btn_back_EFAF;
+    }
+}
