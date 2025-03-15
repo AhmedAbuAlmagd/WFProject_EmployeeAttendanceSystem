@@ -18,7 +18,8 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
                 values: new object[,]
                 {
                     {  null, "Admin@123", "Admin", "admin" },
-                    { null, "HR@123", "HR", "hrmanager" }
+                    { null, "HR@123", "HR", "hrmanager" },
+                    { null, "Employee@123", "Employee", "employee1" }
                 });
         }
 
@@ -33,7 +34,12 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
             migrationBuilder.DeleteData(
                 table: "Users",
                 keyColumn: "id",
-                keyValue: 2000);
+                keyValue: 2000);   
+            
+            migrationBuilder.DeleteData(
+                table: "Users",
+                keyColumn: "id",
+                keyValue: 3000);
         }
     }
 }
