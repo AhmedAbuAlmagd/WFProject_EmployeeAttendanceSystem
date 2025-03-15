@@ -22,6 +22,21 @@ namespace EF_Project.Forms
             InitializeComponent();
             departmentServices = new DepartmentServices(new AttendanceContext());
             this.prevForm = prevForm;
+            Design_Dgv();
+        }
+        private void Design_Dgv()
+        {
+            dgv_department.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_department.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+            dgv_department.DefaultCellStyle.ForeColor = Color.Black;
+            dgv_department.GridColor = Color.Gray;
+
+            dgv_department.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
+            dgv_department.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv_department.EnableHeadersVisualStyles = false;
+
+            dgv_department.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
+            dgv_department.DefaultCellStyle.SelectionForeColor = Color.White;
         }
 
         private void DepartmentsForm_Load(object sender, EventArgs e)
@@ -102,5 +117,15 @@ namespace EF_Project.Forms
             prevForm.Show();
         }
 
+        private void btn_logout_SRF_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new LoginForm().Show();
+            }
+        }
     }
 }

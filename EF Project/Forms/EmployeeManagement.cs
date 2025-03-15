@@ -14,14 +14,14 @@ using EmployeeAttendanceSystem.Models;
 
 namespace EF_Project.Forms
 {
-    public partial class EmployeeManagment : Form
+    public partial class EmployeeManagement : Form
     {
         EmployeeServices employeeServices;
         DepartmentServices departmentServices;
         Form prevForm;
         AttendanceContext context;
         int employee_id;
-        public EmployeeManagment(int employee_id ,Form prevForm)
+        public EmployeeManagement(int employee_id, Form prevForm)
         {
             InitializeComponent();
             context = new AttendanceContext();
@@ -29,18 +29,22 @@ namespace EF_Project.Forms
             departmentServices = new DepartmentServices(context);
             this.prevForm = prevForm;
             this.employee_id = employee_id;
+            Design_Dgv();
         }
-
-        private void btn_getdata_EMF_Click(object sender, EventArgs e)
+        private void Design_Dgv()
         {
-            if (employeeServices.GetById(employee_id).User.role.ToString() == "HR")
-                dgv_emp_EMF.DataSource = employeeServices.GetAllEmp();
-            else
-                dgv_emp_EMF.DataSource = employeeServices.GetAllEmpAndHr();
+            dgv_emp_EMF.BackgroundColor = Color.FromArgb(225, 223, 186);
+            dgv_emp_EMF.DefaultCellStyle.BackColor = Color.FromArgb(225, 225, 225);
+            dgv_emp_EMF.DefaultCellStyle.ForeColor = Color.Black;
+            dgv_emp_EMF.GridColor = Color.Gray;
 
-            LoadEnumComboBox();
+            dgv_emp_EMF.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 64, 128);
+            dgv_emp_EMF.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv_emp_EMF.EnableHeadersVisualStyles = false;
+
+            dgv_emp_EMF.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 128, 192);
+            dgv_emp_EMF.DefaultCellStyle.SelectionForeColor = Color.White;
         }
-
         private void btn_add_EMF_Click(object sender, EventArgs e)
         {
             try
@@ -57,7 +61,7 @@ namespace EF_Project.Forms
                 };
                 employeeServices.Add(emp);
                 MessageBox.Show("Added Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgv_emp_EMF.DataSource = employeeServices.GetAllEmp();
+                ResetView();
 
             }
             catch (Exception ex)
@@ -96,7 +100,9 @@ namespace EF_Project.Forms
                 emp.workSchedule = (workSchedule)cb_schedule_EMF.SelectedItem;
                 employeeServices.Update(id, emp);
                 MessageBox.Show("Updated Done", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgv_emp_EMF.DataSource = employeeServices.GetAllEmp();
+             
+                ResetView();
+
             }
 
             catch (Exception ex)
@@ -107,7 +113,7 @@ namespace EF_Project.Forms
             txt_name_EMF.Text = txt_email_EMF.Text = txt_phone_EMF.Text = txt_position_EMF.Text = "";
 
         }
-
+  
         private void btn_delete_EMF_Click(object sender, EventArgs e)
         {
             try
@@ -117,7 +123,7 @@ namespace EF_Project.Forms
                     employeeServices.Delete(id);
                     MessageBox.Show("Deleted success", "Success", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                dgv_emp_EMF.DataSource = employeeServices.GetAllEmp();
+                ResetView();
             }
 
             catch (Exception ex)
@@ -129,6 +135,8 @@ namespace EF_Project.Forms
 
         private void EmployeeManagment_Load(object sender, EventArgs e)
         {
+            ResetView();
+
             cb_dept_EMF.DataSource = departmentServices.GetAll();
             LoadEnumComboBox();
             cb_dept_EMF.ValueMember = "id";
@@ -141,10 +149,32 @@ namespace EF_Project.Forms
 
         private void btn_back_EMF_Click(object sender, EventArgs e)
         {
-            
+
             this.Close();
             prevForm.Show();
         }
 
+        private void btn_logout_SRF_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new LoginForm().Show();
+            }
+        }
+
+        public void ResetView()
+        {
+            if (employeeServices.GetById(employee_id).User.role.ToString() == "HR")
+                dgv_emp_EMF.DataSource = employeeServices.GetAllEmp();
+            else
+                dgv_emp_EMF.DataSource = employeeServices.GetAllEmpAndHr();
+
+            dgv_emp_EMF.Columns["Department"].Visible = false;
+            dgv_emp_EMF.Columns["User"].Visible = false;
+            txt_name_EMF.Text = txt_email_EMF.Text = txt_phone_EMF.Text = txt_position_EMF.Text = "";
+        }
     }
 }

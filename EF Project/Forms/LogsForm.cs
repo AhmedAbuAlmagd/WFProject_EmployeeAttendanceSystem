@@ -146,9 +146,13 @@ namespace EF_Project.Forms
 
         private void btn_logout_LF_Click(object sender, EventArgs e)
         {
-            this.Close();
-          new LoginForm().Close();
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new LoginForm().Show();
+            }
         }
 
         private void Design_Dgv()

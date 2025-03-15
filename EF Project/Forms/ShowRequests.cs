@@ -198,8 +198,13 @@ namespace EF_Project.Forms
 
         private void btn_logout_SRF_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            new LoginForm().Show();
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                new LoginForm().Show();
+            }
         }
 
 
