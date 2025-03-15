@@ -58,6 +58,14 @@ namespace EmployeeAttendanceSystem.DataAccess.Context
                    password = "HR@123", 
                    role = role.HR,
                    employeeId = null
+               } ,
+               new User
+               {
+                   id = 3,
+                   userName = "employee1",
+                   password = "Employee@123", 
+                   role = role.Employee,
+                   employeeId = null
                }
            );
             base.OnModelCreating(modelBuilder);

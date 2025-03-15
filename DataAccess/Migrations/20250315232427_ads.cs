@@ -2,12 +2,10 @@
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace EmployeeAttendanceSystem.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class addUsers : Migration
+    public partial class ads : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,12 +13,7 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] {  "employeeId", "password", "role", "userName" },
-                values: new object[,]
-                {
-                    {  null, "Admin@123", "Admin", "admin" },
-                    { null, "HR@123", "HR", "hrmanager" },
-               
-                });
+                values: new object[] {  null, "Employee@123", "Employee", "employee1" });
         }
 
         /// <inheritdoc />
@@ -29,14 +22,7 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
             migrationBuilder.DeleteData(
                 table: "Users",
                 keyColumn: "id",
-                keyValue: 1000);
-
-            migrationBuilder.DeleteData(
-                table: "Users",
-                keyColumn: "id",
-                keyValue: 2000);   
-            
-     
+                keyValue: 3000);
         }
     }
 }
