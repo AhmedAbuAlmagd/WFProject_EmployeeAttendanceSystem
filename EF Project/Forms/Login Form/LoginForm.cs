@@ -52,17 +52,20 @@ namespace EF_Project.Forms
                     if (user.role.ToString() == "Employee")
                     {
                         employee_id = (int)user.employeeId;
+                        this.Hide();
                         new AttendanceForm(employee_id, this).Show();
                     }
                     else if (user.role.ToString() == "HR")
                     {
                         employee_id = (int)user.employeeId;
+                        this.Hide();
                         new HRDashboard(employee_id).Show();
                     }
                     else if (user.role.ToString() == "Admin")
                     {
 
                         employee_id = (int)user.employeeId;
+                        this.Hide();
                         new AdminDashboard(employee_id).Show();
                     }
                 }   
