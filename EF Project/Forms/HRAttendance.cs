@@ -40,7 +40,7 @@ namespace EF_Project.Forms
             if (cb_showbydate_HRAF != null)
             {
                 DateOnly selectedDate = (DateOnly)cb_showbydate_HRAF.SelectedItem;
-                var filteredLogs = attendanceServices.GetAttendanceByEmpIdAndDate(currentHRId, selectedDate);
+                var filteredLogs = attendanceServices.GetAttendanceByEmpIdAndDateOnly(currentHRId, selectedDate);
                 dgv_hrattend_HRAF.DataSource = filteredLogs;
             }
             else

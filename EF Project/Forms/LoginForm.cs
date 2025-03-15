@@ -52,14 +52,11 @@ namespace EF_Project.Forms
                     if (user.role.ToString() == "Employee")
                     {
                         employee_id = (int)user.employeeId;
-
                         new AttendanceForm(employee_id, this).Show();
                     }
                     else if (user.role.ToString() == "HR")
                     {
-
-
-                        MessageBox.Show("Welcome to HR Dashboard", "success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        employee_id = (int)user.employeeId;
                         new HRDashboard(employee_id).Show();
                     }
                     else if (user.role.ToString() == "Admin")
@@ -68,7 +65,7 @@ namespace EF_Project.Forms
                         employee_id = (int)user.employeeId;
                         new AdminDashboard(employee_id).Show();
                     }
-                }
+                }   
                 catch
                 {
                     MessageBox.Show("Invalid UserName or Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
