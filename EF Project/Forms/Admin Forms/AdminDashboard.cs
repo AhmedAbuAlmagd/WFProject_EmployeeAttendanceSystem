@@ -77,10 +77,5 @@ namespace EF_Project.Forms
             this.Hide();
             new LogsForm().Show();
         }
-
-        private void AdminDashboard_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

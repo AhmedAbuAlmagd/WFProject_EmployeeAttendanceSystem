@@ -100,6 +100,7 @@
             check_viewPass_UF.TabIndex = 43;
             check_viewPass_UF.Text = "Show Password";
             check_viewPass_UF.UseVisualStyleBackColor = false;
+            check_viewPass_UF.CheckedChanged += check_viewPass_UF_CheckedChanged;
             // 
             // pictureBox1
             // 

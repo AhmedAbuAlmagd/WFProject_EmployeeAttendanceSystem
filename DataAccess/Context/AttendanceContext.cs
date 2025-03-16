@@ -42,32 +42,6 @@ namespace EmployeeAttendanceSystem.DataAccess.Context
                     v => (LeaveType)Enum.Parse(typeof(LeaveType), v.Replace(" ", "_")) 
                 );
 
-            modelBuilder.Entity<User>().HasData(
-               new User
-               {
-                   id = 1,
-                   userName = "admin",
-                   password = "Admin@123", 
-                   role = role.Admin,
-                   employeeId = null
-               },
-               new User
-               {
-                   id = 2,
-                   userName = "hrmanager",
-                   password = "HR@123", 
-                   role = role.HR,
-                   employeeId = null
-               } ,
-               new User
-               {
-                   id = 3,
-                   userName = "employee1",
-                   password = "Employee@123", 
-                   role = role.Employee,
-                   employeeId = null
-               }
-           );
             base.OnModelCreating(modelBuilder);
         }
 

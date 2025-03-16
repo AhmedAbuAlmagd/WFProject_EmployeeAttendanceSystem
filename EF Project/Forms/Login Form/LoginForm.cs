@@ -32,7 +32,7 @@ namespace EF_Project.Forms
             _timer.Tick += Timer_Tick;
             _timer.Start();
 
-           
+
         }
         int employee_id;
         private void btn_login_LF_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace EF_Project.Forms
                         this.Hide();
                         new AdminDashboard(employee_id).Show();
                     }
-                }   
+                }
                 catch
                 {
                     MessageBox.Show("Invalid UserName or Password", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -91,6 +91,13 @@ namespace EF_Project.Forms
                 _attendanceServices.CreateDailyAttendanceRecords();
             }
         }
-      
+
+        private void check_viewPass_UF_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!check_viewPass_UF.Checked)
+                txt_password_LF.UseSystemPasswordChar = true;
+            else
+                txt_password_LF.UseSystemPasswordChar = false;
+        }
     }
 }

@@ -66,7 +66,7 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
 
                     b.HasIndex("Employee_id");
 
-                    b.ToTable("Attendances");
+                    b.ToTable("Attendances", (string)null);
                 });
 
             modelBuilder.Entity("EmployeeAttendanceSystem.DataAccess.Models.Department", b =>
@@ -83,7 +83,7 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Departments");
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("EmployeeAttendanceSystem.DataAccess.Models.LeaveRequest", b =>
@@ -118,7 +118,7 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("LeaveRequests");
+                    b.ToTable("LeaveRequests", (string)null);
                 });
 
             modelBuilder.Entity("EmployeeAttendanceSystem.DataAccess.Models.Log", b =>
@@ -146,7 +146,7 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
 
                     b.HasIndex("empoloyeeId");
 
-                    b.ToTable("Logs");
+                    b.ToTable("Logs", (string)null);
                 });
 
             modelBuilder.Entity("EmployeeAttendanceSystem.DataAccess.Models.User", b =>
@@ -178,30 +178,7 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
                         .IsUnique()
                         .HasFilter("[employeeId] IS NOT NULL");
 
-                    b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            id = 1,
-                            password = "Admin@123",
-                            role = "Admin",
-                            userName = "admin"
-                        },
-                        new
-                        {
-                            id = 2,
-                            password = "HR@123",
-                            role = "HR",
-                            userName = "hrmanager"
-                        },
-                        new
-                        {
-                            id = 3,
-                            password = "Employee@123",
-                            role = "Employee",
-                            userName = "employee1"
-                        });
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("EmployeeAttendanceSystem.Models.Employee", b =>
@@ -239,7 +216,7 @@ namespace EmployeeAttendanceSystem.DataAccess.Migrations
 
                     b.HasIndex("deptId");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
                 });
 
             modelBuilder.Entity("EmployeeAttendanceSystem.DataAccess.Models.Attendance", b =>

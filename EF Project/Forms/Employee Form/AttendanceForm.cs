@@ -28,6 +28,8 @@ namespace EF_Project.Forms
             toolTip.SetToolTip(btn_leaveRequest_AF, "Click here to request leave.");
             notifyIcon1.Visible = true;
         }
+
+        
         //add tooltip to notify when emp is late for check-in
         private ToolTip toolTip = new ToolTip();
 

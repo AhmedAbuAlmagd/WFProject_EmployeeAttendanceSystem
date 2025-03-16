@@ -171,7 +171,6 @@
             Controls.Add(btn_deptsManagement_HRF);
             Name = "AdminDashboard";
             Text = "AdminDashboard";
-            Load += AdminDashboard_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
