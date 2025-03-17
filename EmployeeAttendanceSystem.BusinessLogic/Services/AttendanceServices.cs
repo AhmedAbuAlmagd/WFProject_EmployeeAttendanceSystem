@@ -22,6 +22,10 @@ namespace EmployeeAttendanceSystem.BusinessLogic.Services
             return context.Attendances.ToList();
         }
 
+        public Attendance getById(int id)
+        {
+            return context.Attendances.FirstOrDefault(e => e.id == id);
+        }
         public Attendance GetByEmployeeIdAndDate(int employeeId, DateOnly date)
         {
             return context.Attendances.FirstOrDefault(x => x.Employee_id == employeeId && x.Date == date);

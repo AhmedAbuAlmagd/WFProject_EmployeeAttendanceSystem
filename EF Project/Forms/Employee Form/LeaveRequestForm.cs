@@ -56,7 +56,7 @@ namespace EF_Project.Forms
 
 
             leaveRequestServices.Add(leaveRequest);
-
+            ShowLeaveRequests(); 
             Log log = new Log()
             {
                 action = EmployeeAttendanceSystem.DataAccess.Models.Action.leaveRequest,
@@ -104,9 +104,16 @@ namespace EF_Project.Forms
 
         private void ShowLeaveRequests()
         {
-            dgv_ShowRequests_LRF.DataSource = leaveRequestServices.ShowRequestsByEmpId(employee_id);
-            btn_cancelRequest_LRF.Visible = false;
-            btn_ShowRequests_LRF.Visible = true;
+            var requests = leaveRequestServices.ShowRequestsByEmpId(employee_id);
+            if (requests.Count != 0)
+            {
+                dgv_ShowRequests_LRF.DataSource = leaveRequestServices.ShowRequestsByEmpId(employee_id);
+                btn_cancelRequest_LRF.Visible = false;
+                btn_ShowRequests_LRF.Visible = true;
+            }
+            else
+                MessageBox.Show("There is no requests", "No requests", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void LeaveRequestForm_Load(object sender, EventArgs e)

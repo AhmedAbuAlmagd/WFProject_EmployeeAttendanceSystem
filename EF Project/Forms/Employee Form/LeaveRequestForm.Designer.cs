@@ -113,7 +113,7 @@
             btn_ShowRequests_LRF.BackColor = Color.FromArgb(53, 122, 189);
             btn_ShowRequests_LRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_ShowRequests_LRF.ForeColor = SystemColors.ButtonHighlight;
-            btn_ShowRequests_LRF.Location = new Point(525, 328);
+            btn_ShowRequests_LRF.Location = new Point(494, 328);
             btn_ShowRequests_LRF.Name = "btn_ShowRequests_LRF";
             btn_ShowRequests_LRF.Size = new Size(190, 60);
             btn_ShowRequests_LRF.TabIndex = 5;
@@ -138,10 +138,10 @@
             // 
             dgv_ShowRequests_LRF.BackgroundColor = Color.Ivory;
             dgv_ShowRequests_LRF.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_ShowRequests_LRF.Location = new Point(448, 57);
+            dgv_ShowRequests_LRF.Location = new Point(406, 57);
             dgv_ShowRequests_LRF.Name = "dgv_ShowRequests_LRF";
             dgv_ShowRequests_LRF.RowHeadersWidth = 51;
-            dgv_ShowRequests_LRF.Size = new Size(340, 233);
+            dgv_ShowRequests_LRF.Size = new Size(382, 233);
             dgv_ShowRequests_LRF.TabIndex = 6;
             dgv_ShowRequests_LRF.RowHeaderMouseDoubleClick += dgv_ShowRequests_LRF_RowHeaderMouseDoubleClick;
             // 
@@ -150,7 +150,7 @@
             btn_cancelRequest_LRF.BackColor = Color.FromArgb(208, 40, 80);
             btn_cancelRequest_LRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_cancelRequest_LRF.ForeColor = SystemColors.ButtonHighlight;
-            btn_cancelRequest_LRF.Location = new Point(525, 328);
+            btn_cancelRequest_LRF.Location = new Point(494, 328);
             btn_cancelRequest_LRF.Name = "btn_cancelRequest_LRF";
             btn_cancelRequest_LRF.Size = new Size(190, 60);
             btn_cancelRequest_LRF.TabIndex = 7;

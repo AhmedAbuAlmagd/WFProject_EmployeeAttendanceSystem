@@ -55,7 +55,7 @@ namespace EF_Project.Forms
         {
             var startDate = DateOnly.FromDateTime(dtp_endDate_EFAF.Value);
             var endDate = DateOnly.FromDateTime(dtp_endDate_EFAF.Value);
-            int frequentAbsenceNo = 5;
+            int frequentAbsenceNo = 3;
 
             var absenteesEmployees = attendanceServices.GetFrequentAbsentees(startDate, endDate, frequentAbsenceNo);
             dgv_empfrequentabsence_EFAF.DataSource = absenteesEmployees

@@ -70,18 +70,44 @@ namespace EF_Project.Forms
             if (cb_showbyuser_EAF.SelectedValue != null)
             {
                 int employeeId = (int)cb_showbyuser_EAF.SelectedValue;
-                var attendanceList = attendanceServices.GetAttendanceByEmployee(employeeId);
+                var attendanceList = attendanceServices.GetAttendanceByEmployee(employeeId).Select(a => new
+                {
+                    a.id,
+                    EmployeeName = a.Employee.name, 
+                    a.Date,
+                    a.checkInTime,
+                    a.checkOutTime,
+                    a.WorkingHours,
+                    a.attendanceStatus,
+                    a.IsLate,
+                    a.IsEarlyDeparture,
+                    a.Employee_id
+                })
+                  .ToList(); 
                 dgv_empattend_EAF.DataSource = attendanceList;
-                dgv_empattend_EAF.Columns["Employee"].Visible = false;
+                pbQrCode.Image = null;
             }
         }
 
         private void btn_showbydate_EAF_Click(object sender, EventArgs e)
         {
             DateOnly selectedDate = DateOnly.FromDateTime(date_EAF.Value.Date);
-            var attendanceList = attendanceServices.GetAttendanceByDate(selectedDate);
+            var attendanceList = attendanceServices.GetAttendanceByDate(selectedDate).Select(a => new
+            {
+                a.id,
+                EmployeeName = a.Employee.name,
+                a.Date,
+                a.checkInTime,
+                a.checkOutTime,
+                a.WorkingHours,
+                a.attendanceStatus,
+                a.IsLate,
+                a.IsEarlyDeparture,
+                a.Employee_id
+            })
+                  .ToList(); ;
             dgv_empattend_EAF.DataSource = attendanceList;
-            dgv_empattend_EAF.Columns["Employee"].Visible = false;
+            pbQrCode.Image = null;
 
         }
 
@@ -91,26 +117,25 @@ namespace EF_Project.Forms
             prevForm.Show();
         }
 
-        private string GenerateQrData(List<Attendance> attendanceList)
+        private string GenerateQrData(Attendance attendance)
         {
-            if (attendanceList == null || !attendanceList.Any())
+            if (attendance == null)
             {
                 return "No attendance data available";
             }
 
             StringBuilder sb = new StringBuilder();
-            foreach (var record in attendanceList.Take(1))
-            {
-                sb.AppendLine($"Employee: {record.Employee.name}");
-                sb.AppendLine($"Date: {record.Date.ToString("yyyy-MM-dd")}");
-                sb.AppendLine($"Check In: {record.checkInTime}");
-                sb.AppendLine($"Check Out: {record.checkOutTime}");
-                sb.AppendLine($"Working Hours: {record.WorkingHours}");
-                sb.AppendLine($"Status: {record.attendanceStatus}");
-                sb.AppendLine($"Late: {(record.IsLate ? "Yes" : "No")}");
-                sb.AppendLine($"Early Departure: {(record.IsEarlyDeparture ? "Yes" : "No")}");
-            }
+        
+                sb.AppendLine($"Employee: {attendance.Employee.name}");
+                sb.AppendLine($"Date: {attendance.Date.ToString("yyyy-MM-dd")}");
+                sb.AppendLine($"Check In: {attendance.checkInTime}");
+                sb.AppendLine($"Check Out: {attendance.checkOutTime}");
+                sb.AppendLine($"Working Hours: {attendance.WorkingHours}");
+                sb.AppendLine($"Status: {attendance.attendanceStatus}");
+                sb.AppendLine($"Late: {(attendance.IsLate ? "Yes" : "No")}");
+                sb.AppendLine($"Early Departure: {(attendance.IsEarlyDeparture ? "Yes" : "No")}");
             return sb.ToString();
+
         }
 
         private Bitmap GenerateQrCode(string data)
@@ -129,12 +154,23 @@ namespace EF_Project.Forms
                 int employeeId = (int)cb_showbyuser_EAF.SelectedValue;
                 DateOnly selectedDate = DateOnly.FromDateTime(date_EAF.Value.Date);
 
-                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDateOnly(employeeId, selectedDate);
+                var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDateOnly(employeeId, selectedDate).Select(a => new
+                {
+                    a.id,
+                    EmployeeName = a.Employee.name,
+                    a.Date,
+                    a.checkInTime,
+                    a.checkOutTime,
+                    a.WorkingHours,
+                    a.attendanceStatus,
+                    a.IsLate,
+                    a.IsEarlyDeparture,
+                    a.Employee_id
+                }).ToList();
 
                 dgv_empattend_EAF.DataSource = attendanceList;
-                dgv_empattend_EAF.Columns["Employee"].Visible = false;
-
-                string qrData = GenerateQrData(attendanceList);
+                dgv_empattend_EAF.Columns["Employee_id"].Visible = false;
+                string qrData = GenerateQrData(attendanceServices.getById(attendanceList[0].id));
                 Bitmap qrCode = GenerateQrCode(qrData);
                 pbQrCode.Image = qrCode;
             }
@@ -150,7 +186,7 @@ namespace EF_Project.Forms
             DateOnly selectedDate = (DateOnly)dgv_empattend_EAF.SelectedRows[0].Cells["Date"].Value;
             var attendanceList = attendanceServices.GetAttendanceByEmpIdAndDateOnly(employeeId, selectedDate);
 
-            string qrData = GenerateQrData(attendanceList);
+            string qrData = GenerateQrData(attendanceList[0]);
             Bitmap qrCode = GenerateQrCode(qrData);
             pbQrCode.Image = qrCode;
 
