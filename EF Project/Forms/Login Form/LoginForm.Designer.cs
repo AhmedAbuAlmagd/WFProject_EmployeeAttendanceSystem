@@ -44,7 +44,7 @@
             lbl_userName.AutoSize = true;
             lbl_userName.BackColor = Color.Transparent;
             lbl_userName.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            lbl_userName.Location = new Point(487, 156);
+            lbl_userName.Location = new Point(508, 176);
             lbl_userName.Name = "lbl_userName";
             lbl_userName.Size = new Size(115, 28);
             lbl_userName.TabIndex = 38;
@@ -55,7 +55,7 @@
             lbl_password.AutoSize = true;
             lbl_password.BackColor = Color.Transparent;
             lbl_password.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            lbl_password.Location = new Point(499, 225);
+            lbl_password.Location = new Point(520, 245);
             lbl_password.Name = "lbl_password";
             lbl_password.Size = new Size(103, 28);
             lbl_password.TabIndex = 39;
@@ -63,7 +63,7 @@
             // 
             // txt_password_LF
             // 
-            txt_password_LF.Location = new Point(632, 226);
+            txt_password_LF.Location = new Point(653, 246);
             txt_password_LF.Name = "txt_password_LF";
             txt_password_LF.Size = new Size(175, 27);
             txt_password_LF.TabIndex = 40;
@@ -74,7 +74,7 @@
             btn_login_LF.BackColor = Color.SaddleBrown;
             btn_login_LF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
             btn_login_LF.ForeColor = Color.Transparent;
-            btn_login_LF.Location = new Point(570, 339);
+            btn_login_LF.Location = new Point(591, 359);
             btn_login_LF.Name = "btn_login_LF";
             btn_login_LF.Size = new Size(155, 54);
             btn_login_LF.TabIndex = 41;
@@ -84,7 +84,7 @@
             // 
             // txt_userName_LF
             // 
-            txt_userName_LF.Location = new Point(632, 156);
+            txt_userName_LF.Location = new Point(653, 176);
             txt_userName_LF.Name = "txt_userName_LF";
             txt_userName_LF.Size = new Size(175, 27);
             txt_userName_LF.TabIndex = 42;
@@ -94,7 +94,7 @@
             check_viewPass_UF.AutoSize = true;
             check_viewPass_UF.BackColor = Color.Transparent;
             check_viewPass_UF.Font = new Font("Segoe UI", 7F, FontStyle.Bold | FontStyle.Italic);
-            check_viewPass_UF.Location = new Point(632, 259);
+            check_viewPass_UF.Location = new Point(653, 279);
             check_viewPass_UF.Name = "check_viewPass_UF";
             check_viewPass_UF.Size = new Size(116, 19);
             check_viewPass_UF.TabIndex = 43;
@@ -106,7 +106,7 @@
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.InitialImage = (Image)resources.GetObject("pictureBox1.InitialImage");
-            pictureBox1.Location = new Point(1, 1);
+            pictureBox1.Location = new Point(2, 0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(453, 505);
             pictureBox1.TabIndex = 44;
@@ -117,7 +117,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Ivory;
-            ClientSize = new Size(832, 503);
+            ClientSize = new Size(865, 505);
             Controls.Add(pictureBox1);
             Controls.Add(check_viewPass_UF);
             Controls.Add(txt_userName_LF);
@@ -126,6 +126,7 @@
             Controls.Add(lbl_userName);
             Controls.Add(lbl_password);
             Name = "LoginForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

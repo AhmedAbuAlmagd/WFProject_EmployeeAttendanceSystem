@@ -194,6 +194,7 @@
             Controls.Add(btn_dailyreport_SRF);
             Controls.Add(dgv_showreport_SRF);
             Name = "ShowReports";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ShowReports";
             Load += ShowReports_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_showreport_SRF).EndInit();

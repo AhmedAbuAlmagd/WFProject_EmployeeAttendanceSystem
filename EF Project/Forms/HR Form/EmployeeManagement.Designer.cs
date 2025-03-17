@@ -254,6 +254,7 @@
             Controls.Add(txt_name_EMF);
             Controls.Add(dgv_emp_EMF);
             Name = "EmployeeManagement";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeManagment";
             Load += EmployeeManagment_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_emp_EMF).EndInit();

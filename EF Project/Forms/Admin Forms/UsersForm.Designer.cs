@@ -232,6 +232,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "UsersForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Users Form";
             Load += UsersForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_users_UF).EndInit();

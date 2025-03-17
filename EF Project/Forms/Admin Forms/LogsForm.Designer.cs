@@ -190,6 +190,7 @@
             Controls.Add(btn_getlogs_LF);
             Controls.Add(dgv_showlogs_LF);
             Name = "LogsForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LogsForm";
             ((System.ComponentModel.ISupportInitialize)dgv_showlogs_LF).EndInit();
             ResumeLayout(false);

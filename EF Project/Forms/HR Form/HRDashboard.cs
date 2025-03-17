@@ -50,7 +50,7 @@ namespace EF_Project.Forms
         private void btn_empattend_HRF_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new EmployeeWithFrequentAbsence().Show();
+            new EmployeeAttendance(hr_id, this).Show();
         }
 
         private void btn_logout_HRDF_Click(object sender, EventArgs e)
@@ -70,11 +70,11 @@ namespace EF_Project.Forms
             new LeaveRequestForm(hr_id, this).Show();
         }
 
-        private void btn_empabsence_HRDF_Click(object sender, EventArgs e)
+  
+        private void btn_freqAttend_HRF_Click(object sender, EventArgs e)
         {
-            EmployeeWithFrequentAbsence employeeWithFrequentAbsence = new EmployeeWithFrequentAbsence();
-            employeeWithFrequentAbsence.Show();
             this.Hide();
+            new EmployeeWithFrequentAbsence(this).Show();
         }
     }
 }

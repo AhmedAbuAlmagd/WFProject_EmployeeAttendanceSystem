@@ -29,7 +29,7 @@ namespace EF_Project.Forms
             notifyIcon1.Visible = true;
         }
 
-        
+
         //add tooltip to notify when emp is late for check-in
         private ToolTip toolTip = new ToolTip();
 
@@ -119,25 +119,32 @@ namespace EF_Project.Forms
 
             if (result == DialogResult.Yes)
             {
-                if (employeeServices.GetById(employee_id).User.role.ToString() == "Employee")
-                {
-                    this.Close();
-                }
-                else
-                {
-                    this.Close();
-                    prevForm.Show();
-                }
+
+                this.Close();
+                new LoginForm().Show();
             }
 
         }
 
         private void AttendanceForm_Load(object sender, EventArgs e)
         {
-            if (employeeServices.GetById(employee_id).User.role.ToString() == "Admin" || employeeServices.GetById(employee_id).User.role.ToString() == "HR")
+            if (employeeServices.GetById(employee_id).User.role.ToString() == "Employee")
             {
-                btn_logout_AF.Text = "Back";
+                btn_logout_AF.Visible = true;
+                btn_back_AF.Visible = false;
             }
+            else
+            {
+                btn_logout_AF.Visible = false;
+                btn_back_AF.Visible = true;
+            }
+
+        }
+
+        private void btn_back_AF_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            prevForm.Show();
         }
     }
 }

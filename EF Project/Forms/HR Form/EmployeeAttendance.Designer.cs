@@ -158,6 +158,7 @@
             Controls.Add(btn_showbyuser_EAF);
             Controls.Add(dgv_empattend_EAF);
             Name = "EmployeeAttendance";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeAttendance";
             ((System.ComponentModel.ISupportInitialize)dgv_empattend_EAF).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbQrCode).EndInit();

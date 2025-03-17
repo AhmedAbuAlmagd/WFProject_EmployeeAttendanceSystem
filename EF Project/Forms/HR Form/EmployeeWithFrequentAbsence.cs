@@ -27,12 +27,13 @@ namespace EF_Project.Forms
     {
         AttendanceServices attendanceServices;
         AttendanceContext context;
-        private int hr_id;
-        public EmployeeWithFrequentAbsence()
+        Form prevForm;
+        public EmployeeWithFrequentAbsence(Form prevForm)
         {
             InitializeComponent();
             context = new AttendanceContext();
             attendanceServices = new AttendanceServices(context);
+            this.prevForm = prevForm;
             Design_Dgv();
         }
         private void Design_Dgv()
@@ -132,9 +133,20 @@ namespace EF_Project.Forms
 
         private void btn_back_EFAF_Click(object sender, EventArgs e)
         {
-            HRDashboard hRDashboard = new HRDashboard(hr_id);
-            hRDashboard.Show();
+
             this.Close();
+            prevForm.Show();
+        }
+
+        private void btn_logout_SRF_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Confirm Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+                new LoginForm().Show();
+            }
         }
     }
 }

@@ -198,6 +198,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "LeaveRequestForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Leave Request Form";
             Load += LeaveRequestForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_ShowRequests_LRF).EndInit();

@@ -37,6 +37,7 @@
             toolTip1 = new ToolTip(components);
             notifyIcon1 = new NotifyIcon(components);
             pictureBox1 = new PictureBox();
+            btn_back_AF = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -114,6 +115,19 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
+            // btn_back_AF
+            // 
+            btn_back_AF.BackColor = Color.FromArgb(75, 75, 75);
+            btn_back_AF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            btn_back_AF.ForeColor = SystemColors.ControlLightLight;
+            btn_back_AF.Location = new Point(737, 488);
+            btn_back_AF.Name = "btn_back_AF";
+            btn_back_AF.Size = new Size(116, 44);
+            btn_back_AF.TabIndex = 3;
+            btn_back_AF.Text = "Back";
+            btn_back_AF.UseVisualStyleBackColor = false;
+            btn_back_AF.Click += btn_back_AF_Click;
+            // 
             // AttendanceForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -121,11 +135,13 @@
             BackColor = Color.Linen;
             ClientSize = new Size(865, 549);
             Controls.Add(pictureBox1);
+            Controls.Add(btn_back_AF);
             Controls.Add(btn_logout_AF);
             Controls.Add(btn_leaveRequest_AF);
             Controls.Add(btn_checkout_AF);
             Controls.Add(btn_checkin_AF);
             Name = "AttendanceForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AttendanceForm";
             Load += AttendanceForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -141,5 +157,6 @@
         private ToolTip toolTip1;
         private NotifyIcon notifyIcon1;
         private PictureBox pictureBox1;
+        private Button btn_back_AF;
     }
 }

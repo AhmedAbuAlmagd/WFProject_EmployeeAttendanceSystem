@@ -38,7 +38,7 @@ namespace EF_Project.Forms
             btn_showreport_HRF = new Button();
             btn_logout_HRDF = new Button();
             btn_leaveRequest_HRD = new Button();
-            button1 = new Button();
+            btn_freqAttend_HRF = new Button();
             pictureBox1 = new PictureBox();
             ((ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -134,18 +134,18 @@ namespace EF_Project.Forms
             btn_leaveRequest_HRD.UseVisualStyleBackColor = false;
             btn_leaveRequest_HRD.Click += btn_leaveRequest_HRD_Click;
             // 
-            // button1
+            // btn_freqAttend_HRF
             // 
-            button1.BackColor = Color.Teal;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
-            button1.ForeColor = SystemColors.ButtonHighlight;
-            button1.Location = new Point(513, 222);
-            button1.Name = "button1";
-            button1.Size = new Size(300, 50);
-            button1.TabIndex = 1;
-            button1.Text = "Employee Frequent Absence";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += btn_empattend_HRF_Click;
+            btn_freqAttend_HRF.BackColor = Color.Teal;
+            btn_freqAttend_HRF.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic);
+            btn_freqAttend_HRF.ForeColor = SystemColors.ButtonHighlight;
+            btn_freqAttend_HRF.Location = new Point(513, 222);
+            btn_freqAttend_HRF.Name = "btn_freqAttend_HRF";
+            btn_freqAttend_HRF.Size = new Size(300, 50);
+            btn_freqAttend_HRF.TabIndex = 1;
+            btn_freqAttend_HRF.Text = "Employee Frequent Absence";
+            btn_freqAttend_HRF.UseVisualStyleBackColor = false;
+            btn_freqAttend_HRF.Click += btn_freqAttend_HRF_Click;
             // 
             // pictureBox1
             // 
@@ -167,11 +167,12 @@ namespace EF_Project.Forms
             Controls.Add(btn_showreport_HRF);
             Controls.Add(btn_showrequest_HRF);
             Controls.Add(btn_empmanage_HRF);
-            Controls.Add(button1);
+            Controls.Add(btn_freqAttend_HRF);
             Controls.Add(btn_empattend_HRF);
             Controls.Add(btn_leaveRequest_HRD);
             Controls.Add(btn_myattend_HRF);
             Name = "HRDashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HRDashboard";
             ((ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
@@ -186,7 +187,7 @@ namespace EF_Project.Forms
         private Button btn_showreport_HRF;
         private Button btn_logout_HRDF;
         private Button btn_leaveRequest_HRD;
-        private Button button1;
+        private Button btn_freqAttend_HRF;
         private PictureBox pictureBox1;
     }
 }

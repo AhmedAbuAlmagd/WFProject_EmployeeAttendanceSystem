@@ -148,6 +148,7 @@
             Controls.Add(txt_deptName_DF);
             Controls.Add(dgv_department);
             Name = "DepartmentsForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "DepartmentsForm";
             Load += DepartmentsForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_department).EndInit();

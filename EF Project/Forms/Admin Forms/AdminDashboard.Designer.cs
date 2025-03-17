@@ -170,6 +170,7 @@
             Controls.Add(btn_usersManagement_HRD);
             Controls.Add(btn_deptsManagement_HRF);
             Name = "AdminDashboard";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AdminDashboard";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

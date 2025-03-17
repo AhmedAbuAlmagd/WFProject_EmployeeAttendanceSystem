@@ -165,7 +165,7 @@ namespace EF_Project.Forms
 
             if (result == DialogResult.Yes)
             {
-                this.Hide();
+                this.Close();
                 new LoginForm().Show();
             }
         }

@@ -134,6 +134,7 @@
             btn_logout_SRF.TabIndex = 43;
             btn_logout_SRF.Text = "Log Out";
             btn_logout_SRF.UseVisualStyleBackColor = false;
+            btn_logout_SRF.Click += btn_logout_SRF_Click;
             // 
             // EmployeeWithFrequentAbsence
             // 
@@ -151,6 +152,7 @@
             Controls.Add(btn_showabsenceemployees_EFAF);
             Controls.Add(dgv_empfrequentabsence_EFAF);
             Name = "EmployeeWithFrequentAbsence";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EmployeeWithFrequentAbsence";
             ((System.ComponentModel.ISupportInitialize)dgv_empfrequentabsence_EFAF).EndInit();
             ResumeLayout(false);

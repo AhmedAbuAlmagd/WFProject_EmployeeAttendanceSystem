@@ -175,6 +175,7 @@
             Controls.Add(btn_accept_SRF);
             Controls.Add(dgv_showrequests_SRF);
             Name = "ShowRequests";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ShowRequests";
             Load += ShowRequests_Load;
             ((System.ComponentModel.ISupportInitialize)dgv_showrequests_SRF).EndInit();
