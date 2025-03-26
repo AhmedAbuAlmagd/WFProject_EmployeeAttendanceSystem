@@ -11,7 +11,10 @@
 
 ### **Admin 🖥️**  
 #### - Perform CRUD operations (Employees, HR users, Departments).  
-#### - Manage system-wide settings and configurations.  
+#### - Manage system-wide settings and configurations.
+#### - Track employees and hrs attendance 
+#### - creating reports for all employees and hrs attendances , leaveRequests , lates and absence .
+#### - Viewing logs of all employees and hrs on the application 
 
 ### **Employee 👤**  
 #### - Check-In/Check-Out: Check in and out daily using a QR code or biometric integration. 📱  
@@ -20,6 +23,8 @@
 ### **HR 🧑‍💼**  
 #### - Check-In/Check-Out: Check in and out using a QR code or biometric integration. 📱  
 #### - Employee Management: Perform CRUD operations for employees.  
+#### - Track employees attendance 
+#### - creating reports for all employees  attendances , leaveRequests , lates and absence .
 
 ---
 
