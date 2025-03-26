@@ -44,8 +44,7 @@ Database: SQL Server
 ORM: Entity Framework Core, Dapper
 UI Components: WinForms
 ⚙️ Technical Requirements
-Uses Entity Framework Core for database interactions.
-Implements CRUD operations for employees and attendance records.
+Uses Entity Framework Core for database interactions. -ões Implements CRUD operations for employees and attendance records.
 Follows a Code-First Approach for database migrations.
 Includes validation and error handling (e.g., preventing duplicate check-ins).
 Supports role-based authentication (Admin, HR, Employee).
