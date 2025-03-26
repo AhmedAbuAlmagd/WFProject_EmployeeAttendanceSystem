@@ -83,6 +83,27 @@
 
 ### **2. Installation**  
 
-#### **Clone the Repository:**  
-```bash
-git clone https://github.com/[YourUsername]/[YourRepoName].git
+#### 1-  Clone the Repository 
+``bash
+
+git clone https://github.com/AhmedAbuAlmagd/WFProject_EmployeeAttendanceSystem.git
+
+#### 2- Open the Project:
+Open the .sln file in Visual Studio.
+
+#### 3-  Configure the Database:
+Update the connection string in  App.config with your SQL Server details.
+
+#### 4- Run this command in the Package Manager Console to apply migrations:
+Update-Database
+
+#### 5- Build and Run:
+Press F5 in Visual Studio to build and launch the application.
+
+#### 6- Additional Setup 
+Create Default Admin User:
+
+Run the following SQL script in SQL Server Management Studio (SSMS) to insert an admin user:
+
+INSERT INTO Users (Username, Password, Role)
+VALUES ('admin', 'Admin@123', 'Admin');
